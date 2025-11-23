@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Resources for K-12 Educators</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            background: #f8fafc;
+        }
+        
+        nav {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+            padding: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+        
+        .last-updated {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #6366f1;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin: 2rem 0 1rem;
+        }
+        
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        #searchInput {
+            width: 100%;
+            max-width: 600px;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #6366f1;
+            border-radius: 10px;
+            outline: none;
+        }
+        
+        #searchInput:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #6366f1;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .resource-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-icon {
+            font-size: 2.5rem;
+        }
+        
+        .resource-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: #6366f1;
+            margin: 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        
+        .badge.local {
+            background: #10b981;
+        }
+        
+        .badge.online {
+            background: #8b5cf6;
+        }
+        
+        .badge.new {
+            background: #ec4899;
+        }
+        
+        .resource-card p {
+            color: #64748b;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+        
+        .resource-card ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .resource-card li {
+            margin: 0.5rem 0;
+            color: #64748b;
+        }
+        
+        .contact-info {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 2rem;
+<!-- HOME PAGE -->
+        <section id="home" class="page-section active">
+            <h2><span>🏠</span> Welcome Educators</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">This resource guide provides evidence-based strategies, local Concord/Contra Costa County resources, and national tools to support autistic students across K-12 settings. Use the navigation above or search to find what you need.</p>
+            
+            <div class="download-box">
+                <h3>📥 Quick Reference Downloads</h3>
+                <p>Save these essential guides for offline reference:</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+                    <button onclick="window.print()">📄 Print This Site</button>
+                    <button class="btn-success" onclick="downloadQuickReference()">📋 Download Contact List</button>
+                </div>
+            </div>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">❓</div>
+                        <h4>Getting Started / FAQ</h4>
+                    </div>
+                    <p>New to supporting autistic students? Start here for essential information and answers to common questions.</p>
+                    <button onclick="showPage('faq')">Explore FAQs</button>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">📚</div>
+                        <h4>Academic Supports</h4>
+                    </div>
+                    <p>Classroom strategies, accommodations, and teaching methods for academic success.</p>
+                    <button onclick="showPage('academic')">Explore Resources</button>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">💬</div>
+                        <h4>Communication Strategies</h4>
+                    </div>
+                    <p>AAC, visual supports, and communication tools for all learners.</p>
+                    <button onclick="showPage('communication')">Explore Resources</button>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🎯</div>
+                        <h4>Behavior Support</h4>
+                    </div>
+                    <p>Positive behavior supports, FBAs, and understanding challenging behaviors.</p>
+                    <button onclick="showPage('behavior')">Explore Resources</button>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🎓</div>
+                        <h4>Transition Supports</h4>
+                    </div>
+                    <p>Resources for transitions between grades, schools, and into post-secondary life.</p>
+                    <button onclick="showPage('transition')">Explore Resources</button>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">💚</div>
+                        <h4>Trauma-Informed Practices</h4>
+                    </div>
+                    <p>Understanding trauma and supporting mental health for autistic students.</p>
+                    <button onclick="showPage('trauma')">Explore Resources</button>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">📍</div>
+                        <h4>Local Concord Resources</h4>
+                    </div>
+                    <p>Concord, CA and Contra Costa County organizations and services.</p>
+                    <button onclick="showPage('local')">Explore Resources</button>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>💡 How to Use This Site</h3>
+                <p><strong>Navigate:</strong> Click sections above or use the top menu to explore topics.<br>
+                <strong>Search:</strong> Use the search bar to find specific resources quickly.<br>
+                <strong>Save:</strong> Print pages or download the quick reference guide for offline use.<br>
+                <strong>Share:</strong> Send families to specific sections for parent resources.</p>
+            </div>
+        </section>
+
+        <!-- FAQ / GETTING STARTED PAGE -->
+        <section id="faq" class="page-section">
+            <h2><span>❓</span> Getting Started & FAQ</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Essential information for educators new to supporting autistic students.</p>
+
+            <div class="printable-section">
+                <button onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <h3>🚀 What to Do First</h3>
+            <div class="faq-item">
+                <h4>I suspect a student might be autistic. What should I do?</h4>
+                <p><strong>Step 1:</strong> Document specific observations (social communication, repetitive behaviors, sensory sensitivities, strengths, challenges).<br>
+                <strong>Step 2:</strong> Share concerns with parents/guardians in a supportive, non-diagnostic way. Focus on what you're observing and how you want to help.<br>
+                <strong>Step 3:</strong> Refer to your school's Student Study Team (SST) or pre-referral intervention process.<br>
+                <strong>Step 4:</strong> If appropriate, initiate a special education evaluation request with parent consent.<br>
+                <strong>Step 5:</strong> Connect family with resources like Regional Center (RCEB) for under-3 or additional services.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How do I request a special education evaluation?</h4>
+                <p>Work with your school's special education coordinator or administrator. Parents must provide written consent. The evaluation must be completed within 60 days in California. The evaluation will include assessments in all areas of suspected disability, including cognitive, academic, social-emotional, communication, and adaptive functioning.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What should I do while waiting for an evaluation?</h4>
+                <p>Implement classroom accommodations and supports immediately - you don't need to wait for a diagnosis! Try: visual schedules, sensory breaks, clear expectations, preferential seating, modified assignments, extra processing time, and positive behavior supports.</p>
+            </div>
+
+            <h3>📋 Understanding the IEP Process</h3>
+            <div class="faq-item">
+                <h4>What is an IEP?</h4>
+                <p>An <strong>Individualized Education Program (IEP)</strong> is a legally binding document that outlines specialized instruction, related services, accommodations, and goals for a student with a disability. It's developed by a team including parents, teachers, specialists, and administrators.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What's my role as a general education teacher in the IEP process?</h4>
+                <p>You provide critical information about the student's performance in the general education setting, suggest accommodations that work, collaborate on goal development, implement IEP services in your classroom, monitor progress, and communicate regularly with the IEP team.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What's the difference between an IEP and a 504 Plan?</h4>
+                <p><strong>IEP (IDEA):</strong> For students who need specialized instruction due to one of 13 disability categories. Includes goals, services, and accommodations.<br>
+                <strong>504 Plan (Section 504):</strong> For students with disabilities who need accommodations but not specialized instruction. Only includes accommodations to access general education.</p>
+            </div>
+
+            <h3>🔤 Common Special Education Acronyms</h3>
+            <div class="resource-card">
+                <h4>Essential Terms to Know:</h4>
+                <ul>
+                    <li><strong>IDEA:</strong> Individuals with Disabilities Education Act - federal special education law</li>
+                    <li><strong>FAPE:</strong> Free Appropriate Public Education - what schools must provide</li>
+                    <li><strong>LRE:</strong> Least Restrictive Environment - educating with non-disabled peers to maximum extent</li>
+                    <li><strong>IEP:</strong> Individualized Education Program</li>
+                    <li><strong>IFSP:</strong> Individualized Family Service Plan (for ages 0-3)</li>
+                    <li><strong>SDC:</strong> Special Day Class</li>
+                    <li><strong>RSP:</strong> Resource Specialist Program</li>
+                    <li><strong>DIS:</strong> Designated Instructional Services (speech, OT, counseling, etc.)</li>
+                    <li><strong>FBA:</strong> Functional Behavior Assessment</li>
+                    <li><strong>BIP:</strong> Behavior Intervention Plan</li>
+                    <li><strong>AAC:</strong> Augmentative and Alternative Communication</li>
+                    <li><strong>OT:</strong> Occupational Therapy</li>
+                    <li><strong>APE:</strong> Adapted Physical Education</li>
+                    <li><strong>ESY:</strong> Extended School Year (summer services)</li>
+                    <li><strong>SELPA:</strong> Special Education Local Plan Area</li>
+                </ul>
+            </div>
+
+            <h3>🎯 Quick Tips for Supporting Autistic Learners</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">👀</div>
+                        <h4>Visual Supports</h4>
+                    </div>
+                    <p>Use visual schedules, choice boards, timers, written instructions, and graphic organizers. Most autistic students are visual learners.</p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🔊</div>
+                        <h4>Clear Communication</h4>
+                    </div>
+                    <p>Be direct and literal. Avoid idioms, sarcasm, or abstract language. Give processing time. Check for understanding.</p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🔄</div>
+                        <h4>Predictable Routines</h4>
+                    </div>
+                    <p>Maintain consistent schedules. Provide advance notice of changes. Use transition warnings ("5 minutes until...").</p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🎨</div>
+                        <h4>Sensory Considerations</h4>
+                    </div>
+                    <p>Reduce overwhelming stimuli. Offer sensory breaks. Allow movement. Provide quiet spaces when needed.</p>
+                </div>
+            </div>
+
+            <h3>📞 Who to Contact for Help</h3>
+            <div class="resource-card">
+                <h4>Your School-Based Team:</h4>
+                <ul>
+                    <li><strong>Special Education Teacher/Case Manager:</strong> Primary contact for IEP questions</li>
+                    <li><strong>School Psychologist:</strong> Assessment, behavior support, mental health</li>
+                    <li><strong>Speech-Language Pathologist:</strong> Communication and social skills</li>
+                    <li><strong>Occupational Therapist:</strong> Sensory, fine motor, daily living skills</li>
+                    <li><strong>Behavior Specialist:</strong> FBA/BIP development and support</li>
+                    <li><strong>Administrator:</strong> IEP compliance, placement decisions</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">Beyond Your School:</h4>
+                <ul>
+                    <li><strong>SELPA:</strong> District-level special education support - (925) 942-3388</li>
+                    <li><strong>Regional Center:</strong> Community services and supports - (510) 383-1200</li>
+                    <li><strong>County Office of Education:</strong> Professional development and resources</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>💪 Remember</h3>
+                <p>You don't need to be an autism expert to make a difference! Small accommodations can have huge impacts. Ask the student what helps them. Collaborate with families - they know their child best. And don't hesitate to ask for help from your special education team.</p>
+            </div>
+        </section>
+
+        <!-- ACADEMIC SUPPORTS PAGE (Enhanced) -->
+        <section id="academic" class="page-section">
+            <h2><span>📚</span> Academic Supports</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Evidence-based strategies and accommodations to support autistic learners' academic success.</p>
+
+            <div class="printable-section">
+                <button onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <h3>🌐 National & Online Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📖</div>
+                        <h4>AFIRM</h4>
+                    </div>
+                    <p>Autism Focused Intervention Resources & Modules - Free evidence-based practices for teaching autistic students.</p>
+                    <ul>
+                        <li>27 evidence-based practices with step-by-step guides</li>
+                        <li>Implementation checklists and fidelity measures</li>
+                        <li>Video examples and case studies</li>
+                        <li>Professional development modules</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://afirm.fpg.unc.edu/" target="_blank">afirm.fpg.unc.edu</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎯</div>
+                        <h4>IRIS Center - Autism Modules</h4>
+                    </div>
+                    <p>Free online training modules for educators working with autistic students.</p>
+                    <ul>
+                        <li>Accommodations for reading, writing, and math</li>
+                        <li>Classroom behavior management</li>
+                        <li>Assistive technology resources</li>
+                        <li>IEP development and implementation</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://iris.peabody.vanderbilt.edu/" target="_blank">iris.peabody.vanderbilt.edu</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">Popular!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎨</div>
+                        <h4>Do2Learn</h4>
+                    </div>
+                    <p>FREE printable materials, visual supports, and social skills resources that teachers love!</p>
+                    <ul>
+                        <li>Thousands of free picture cards and visual supports</li>
+                        <li>Printable social stories and behavior charts</li>
+                        <li>Communication boards and schedules</li>
+                        <li>Academic worksheets and activities</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.do2learn.com/" target="_blank">do2learn.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🔤</div>
+                        <h4>Understood.org</h4>
+                    </div>
+                    <p>Comprehensive resources for learning differences including autism-specific classroom strategies.</p>
+                    <ul>
+                        <li>Free downloadable accommodations</li>
+                        <li>IEP goal bank</li>
+                        <li>Assistive technology recommendations</li>
+                        <li>Parent-teacher communication tools</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.understood.org/" target="_blank">understood.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🧩</div>
+                        <h4>Organization for Autism Research</h4>
+                    </div>
+                    <p>Research-based resources including "Life Journey Through Autism" guidebooks.</p>
+                    <ul>
+                        <li>Free educator's guides for K-12</li>
+                        <li>Curriculum modification strategies</li>
+                        <li>Social skills instruction</li>
+                        <li>Transition planning tools</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://researchautism.org/" target="_blank">researchautism.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎓</div>
+                        <h4>Autism Internet Modules</h4>
+                    </div>
+                    <p>Free online training modules covering evidence-based practices for autism.</p>
+                    <ul>
+                        <li>Self-paced professional development</li>
+                        <li>Certificates of completion available</li>
+                        <li>Research-based content</li>
+                        <li>Practical classroom applications</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://autisminternetmodules.org/" target="_blank">autisminternetmodules.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📊</div>
+                        <h4>National Autism Center</h4>
+                    </div>
+                    <p>Evidence-based practice reports and resources for educators and families.</p>
+                    <ul>
+                        <li>National Standards Project reports</li>
+                        <li>Evidence-based intervention guides</li>
+                        <li>Professional development resources</li>
+                        <li>Research summaries for practitioners</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.nationalautismcenter.org/" target="_blank">nationalautismcenter.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📍 Local Concord/Contra Costa Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏫</div>
+                        <h4>Contra Costa County SELPA</h4>
+                    </div>
+                    <p>Special Education Local Plan Area providing training and consultation for educators.</p>
+                    <ul>
+                        <li>Professional development workshops</li>
+                        <li>IEP and assessment support</li>
+                        <li>Autism-specific consultation</li>
+                        <li>Resource specialists available</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.cocosped.org/" target="_blank">cocosped.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 942-3388</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎓</div>
+                        <h4>Mt. Diablo Unified School District</h4>
+                    </div>
+                    <p>District-level special education resources serving Concord and surrounding areas.</p>
+                    <ul>
+                        <li>Special day classes and inclusion support</li>
+                        <li>Behavior intervention specialists</li>
+                        <li>Assistive technology lending library</li>
+                        <li>Parent and educator workshops</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.mdusd.org/" target="_blank">mdusd.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 682-8000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎯</div>
+                        <h4>Contra Costa County Office of Education</h4>
+                    </div>
+                    <p>County-level professional development and technical assistance.</p>
+                    <ul>
+                        <li>Educator training opportunities</li>
+                        <li>Special education support services</li>
+                        <li>Instructional resources</li>
+                        <li>Collaborative programs</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.cccoe.k12.ca.us/" target="_blank">cccoe.k12.ca.us</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 942-3388</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-links-box">
+                <h3>🔗 Quick Strategy Guides</h3>
+                <ul>
+                    <li><a href="https://afirm.fpg.unc.edu/visual-supports" target="_blank">→ Visual Supports Implementation Guide</a></li>
+                    <li><a href="https://afirm.fpg.unc.edu/structured-work-systems" target="_blank">→ Structured Work Systems</a></li>
+                    <li><a href="https://iris.peabody.vanderbilt.edu/module/asd2/" target="_blank">→ Accommodations for Students with Autism</a></li>
+                    <li><a href="https://www.understood.org/en/articles/at-a-glance-classroom-accommodations-for-autism" target="_blank">→ At-a-Glance Classroom Accommodations</a></li>
+                    <li><a href="https://www.do2learn.com/picturecards/printcards/index.htm" target="_blank">→ Free Printable Picture Cards (Do2Learn)</a></li>
+                </ul>
+            </div>
+        </section>
+<!-- COMMUNICATION STRATEGIES PAGE (NEW!) -->
+        <section id="communication" class="page-section">
+            <h2><span>💬</span> Communication Strategies</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">AAC, visual supports, and communication tools to support all learners.</p>
+
+            <div class="printable-section">
+                <button onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <h3>🌐 AAC & Communication Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">Essential!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📱</div>
+                        <h4>AssistiveWare - Proloquo2Go</h4>
+                    </div>
+                    <p>Popular AAC app for iPad with symbol-based communication.</p>
+                    <ul>
+                        <li>Comprehensive symbol library</li>
+                        <li>Customizable vocabulary</li>
+                        <li>Natural-sounding voices</li>
+                        <li>Used widely in schools</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.assistiveware.com/" target="_blank">assistiveware.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎨</div>
+                        <h4>Boardmaker Online</h4>
+                    </div>
+                    <p>Create visual supports, communication boards, and adapted materials.</p>
+                    <ul>
+                        <li>Thousands of Picture Communication Symbols (PCS)</li>
+                        <li>Pre-made activities and templates</li>
+                        <li>Curriculum-aligned materials</li>
+                        <li>Print or use digitally</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://goboardmaker.com/" target="_blank">goboardmaker.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">Free!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🗣️</div>
+                        <h4>ASHA - AAC Resources</h4>
+                    </div>
+                    <p>American Speech-Language-Hearing Association's comprehensive AAC information.</p>
+                    <ul>
+                        <li>Understanding AAC basics</li>
+                        <li>Types of AAC systems</li>
+                        <li>Implementation strategies</li>
+                        <li>Professional resources</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.asha.org/public/speech/disorders/aac/" target="_blank">asha.org/aac</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">Free!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📋</div>
+                        <h4>PECS (Picture Exchange Communication)</h4>
+                    </div>
+                    <p>Evidence-based communication system using picture exchange.</p>
+                    <ul>
+                        <li>Structured teaching protocol</li>
+                        <li>Research-validated approach</li>
+                        <li>Training and certification available</li>
+                        <li>Used worldwide</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://pecsusa.com/" target="_blank">pecsusa.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">Free!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📸</div>
+                        <h4>Lessonpix</h4>
+                    </div>
+                    <p>Create custom visual supports, schedules, and communication materials.</p>
+                    <ul>
+                        <li>40,000+ images and symbols</li>
+                        <li>Visual schedule makers</li>
+                        <li>Choice boards and token boards</li>
+                        <li>Subscription-based with free trial</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://lessonpix.com/" target="_blank">lessonpix.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">💭</div>
+                        <h4>Social Thinking</h4>
+                    </div>
+                    <p>Framework and resources for teaching social communication skills.</p>
+                    <ul>
+                        <li>Evidence-based social communication curriculum</li>
+                        <li>Thinking about thinking concepts</li>
+                        <li>Visual tools and strategies</li>
+                        <li>Professional development</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.socialthinking.com/" target="_blank">socialthinking.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📍 Local Speech & Communication Services</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🗣️</div>
+                        <h4>MDUSD Speech-Language Services</h4>
+                    </div>
+                    <p>District speech-language pathologists providing assessment and therapy.</p>
+                    <ul>
+                        <li>Speech and language evaluations</li>
+                        <li>AAC assessment and implementation</li>
+                        <li>Social communication groups</li>
+                        <li>Consultation for teachers</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>Contact your school SLP or (925) 682-8000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">💬</div>
+                        <h4>Regional Center - Speech Services</h4>
+                    </div>
+                    <p>RCEB can provide speech therapy for children under 3 or in addition to school services.</p>
+                    <ul>
+                        <li>Early intervention (0-3) speech therapy</li>
+                        <li>AAC device funding</li>
+                        <li>Family training and support</li>
+                        <li>Bilingual services available</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(510) 618-6195 (under 3) | (510) 618-6122 (over 3)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>💡 Key Communication Principles</h3>
+                <p><strong>Presume competence:</strong> All students have something to communicate, regardless of speaking ability.<br>
+                <strong>Model AAC:</strong> Use the student's communication system yourself to teach language.<br>
+                <strong>Honor all communication:</strong> Gestures, sounds, behaviors are all communication attempts.<br>
+                <strong>Give time:</strong> Processing and responding can take longer - wait patiently.<br>
+                <strong>Reduce pressure:</strong> Don't force eye contact or speech. Focus on the message, not the method.</p>
+            </div>
+
+            <div class="quick-links-box">
+                <h3>🔗 Quick Communication Resources</h3>
+                <ul>
+                    <li><a href="https://www.do2learn.com/picturecards/printcards/index.htm" target="_blank">→ Free Picture Cards for Communication</a></li>
+                    <li><a href="https://www.asha.org/public/speech/disorders/aac/" target="_blank">→ Understanding AAC (ASHA)</a></li>
+                    <li><a href="https://afirm.fpg.unc.edu/visual-supports" target="_blank">→ Visual Supports Guide (AFIRM)</a></li>
+                    <li><a href="https://www.socialthinking.com/free-articles-thinking" target="_blank">→ Free Social Thinking Articles</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- BEHAVIOR SUPPORT PAGE (NEW!) -->
+        <section id="behavior" class="page-section">
+            <h2><span>🎯</span> Behavior Support</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Positive behavior supports, functional behavior assessments, and understanding challenging behaviors.</p>
+
+            <div class="printable-section">
+                <button onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <h3>🌐 National Behavior Support Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">Essential!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🌟</div>
+                        <h4>PBIS.org</h4>
+                    </div>
+                    <p>Positive Behavioral Interventions and Supports - national technical assistance center.</p>
+                    <ul>
+                        <li>PBIS implementation frameworks</li>
+                        <li>Tier 1, 2, and 3 strategies</li>
+                        <li>Assessment tools and resources</li>
+                        <li>Professional development materials</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.pbis.org/" target="_blank">pbis.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📊</div>
+                        <h4>FBA/BIP Resources (AFIRM)</h4>
+                    </div>
+                    <p>Evidence-based guidance on conducting functional behavior assessments.</p>
+                    <ul>
+                        <li>Step-by-step FBA process</li>
+                        <li>BIP development guides</li>
+                        <li>Function of behavior identification</li>
+                        <li>Data collection tools</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://afirm.fpg.unc.edu/functional-behavior-assessment" target="_blank">afirm.fpg.unc.edu/fba</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">Popular!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🧠</div>
+                        <h4>The Explosive Child (Ross Greene)</h4>
+                    </div>
+                    <p>Collaborative Problem Solving (CPS) approach for challenging behaviors.</p>
+                    <ul>
+                        <li>Understanding lagging skills</li>
+                        <li>Collaborative problem-solving strategies</li>
+                        <li>Reducing challenging behaviors</li>
+                        <li>Building skills, not compliance</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.livesinthebalance.org/" target="_blank">livesinthebalance.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🔄</div>
+                        <h4>Low Arousal Approach</h4>
+                    </div>
+                    <p>Strategies to prevent and de-escalate challenging behaviors in autism.</p>
+                    <ul>
+                        <li>Understanding sensory overload</li>
+                        <li>De-escalation techniques</li>
+                        <li>Environmental modifications</li>
+                        <li>Non-confrontational approach</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.autismeastmidlands.org.uk/services/training-services/low-arousal/" target="_blank">Low Arousal resources</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📈</div>
+                        <h4>Behavior Tracker Apps</h4>
+                    </div>
+                    <p>Digital tools for tracking and analyzing behavior data.</p>
+                    <ul>
+                        <li>ABC data collection (Antecedent-Behavior-Consequence)</li>
+                        <li>Frequency and duration tracking</li>
+                        <li>Graph generation for progress monitoring</li>
+                        <li>Examples: Behavior Tracker Pro, ClassDojo, Kickboard</li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎮</div>
+                        <h4>Sensory Circuits & Movement Breaks</h4>
+                    </div>
+                    <p>Preventive strategies using sensory input and movement.</p>
+                    <ul>
+                        <li>Sensory circuit activities for classrooms</li>
+                        <li>Movement break ideas</li>
+                        <li>Heavy work activities</li>
+                        <li>Calm-down strategies</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.sensorycircuits.co.uk/" target="_blank">sensorycircuits.co.uk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📍 Local Behavior Support Services</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎯</div>
+                        <h4>MDUSD Behavior Support Team</h4>
+                    </div>
+                    <p>District behavior specialists providing consultation and direct support.</p>
+                    <ul>
+                        <li>Functional Behavior Assessments</li>
+                        <li>Behavior Intervention Plan development</li>
+                        <li>Classroom observations and consultation</li>
+                        <li>Crisis intervention support</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>Contact through your school administrator or (925) 682-8000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏥</div>
+                        <h4>Contra Costa Behavioral Health</h4>
+                    </div>
+                    <p>Mental health services including school-based supports.</p>
+                    <ul>
+                        <li>School-based mental health clinicians</li>
+                        <li>Crisis intervention services</li>
+                        <li>Wraparound services</li>
+                        <li>Family support programs</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>Crisis: (800) 833-2900 | Main: (925) 957-5140</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>🔑 Understanding Behavior in Autism</h3>
+                <p><strong>All behavior is communication.</strong> Challenging behaviors often communicate: "This is too hard," "I'm overwhelmed," "I don't understand," "I need a break," or "Something hurts."<br><br>
+                <strong>Common functions of behavior:</strong><br>
+                • Escape/Avoid (get away from something difficult or unpleasant)<br>
+                • Attention (get social interaction)<br>
+                • Sensory (seek or avoid sensory input)<br>
+                • Tangible (get access to something desired)<br><br>
+                <strong>Prevention is key:</strong> Environmental modifications, visual supports, predictable routines, and teaching replacement skills prevent most challenging behaviors.</p>
+            </div>
+
+            <div class="quick-links-box">
+                <h3>🔗 Behavior Support Quick Links</h3>
+                <ul>
+                    <li><a href="https://www.pbis.org/pbis/tier-1" target="_blank">→ PBIS Tier 1 Strategies</a></li>
+                    <li><a href="https://afirm.fpg.unc.edu/functional-behavior-assessment" target="_blank">→ How to Conduct an FBA</a></li>
+                    <li><a href="https://www.livesinthebalance.org/walking-tour" target="_blank">→ Collaborative Problem Solving Overview</a></li>
+                    <li><a href="https://afirm.fpg.unc.edu/reinforcement" target="_blank">→ Using Reinforcement Effectively</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TRANSITION SUPPORTS PAGE (Enhanced) -->
+        <section id="transition" class="page-section">
+            <h2><span>🎓</span> Transition Supports</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Resources for supporting autistic students through school transitions and preparation for post-secondary life, employment, and independent living.</p>
+
+            <div class="printable-section">
+                <button onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <h3>🌐 National & Online Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🚀</div>
+                        <h4>NTACT</h4>
+                    </div>
+                    <p>National Technical Assistance Center on Transition - Premier resource for secondary transition.</p>
+                    <ul>
+                        <li>Transition assessment tools and guides</li>
+                        <li>Post-secondary education planning</li>
+                        <li>Employment preparation strategies</li>
+                        <li>Independent living skills curricula</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://transitionta.org/" target="_blank">transitionta.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">💼</div>
+                        <h4>Autism Speaks Employment Tool Kit</h4>
+                    </div>
+                    <p>Comprehensive guide for preparing autistic young adults for competitive employment.</p>
+                    <ul>
+                        <li>Resume building and interview prep</li>
+                        <li>Workplace accommodations guidance</li>
+                        <li>Job coaching resources</li>
+                        <li>Disclosure decision-making tools</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.autismspeaks.org/tool-kit/employment-tool-kit" target="_blank">autismspeaks.org/employment</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏛️</div>
+                        <h4>Think College</h4>
+                    </div>
+                    <p>National initiative for inclusive higher education options for students with intellectual disabilities.</p>
+                    <ul>
+                        <li>Database of college programs nationwide</li>
+                        <li>Student and family planning guides</li>
+                        <li>Financial aid information</li>
+                        <li>College preparation resources</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://thinkcollege.net/" target="_blank">thinkcollege.net</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎯</div>
+                        <h4>Transition Coalition</h4>
+                    </div>
+                    <p>Evidence-based transition assessment and planning tools for educators.</p>
+                    <ul>
+                        <li>Age-appropriate transition assessments</li>
+                        <li>Person-centered planning resources</li>
+                        <li>IEP transition goals bank</li>
+                        <li>Self-determination curriculum</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://transitioncoalition.org/" target="_blank">transitioncoalition.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📚</div>
+                        <h4>Going to College</h4>
+                    </div>
+                    <p>Comprehensive college planning resource for students with disabilities.</p>
+                    <ul>
+                        <li>College search and selection</li>
+                        <li>Disclosure and accommodations</li>
+                        <li>Self-advocacy skills</li>
+                        <li>Financial planning</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.going-to-college.org/" target="_blank">going-to-college.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">💼</div>
+                        <h4>APSE - Employment First</h4>
+                    </div>
+                    <p>Association of People Supporting Employment First - employment resources and advocacy.</p>
+                    <ul>
+                        <li>Employment First philosophy</li>
+                        <li>Customized employment strategies</li>
+                        <li>Job development resources</li>
+                        <li>Professional networking</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://apse.org/" target="_blank">apse.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">👨‍👩‍👧</div>
+                        <h4>Pacer Center - National Parent Center on Transition</h4>
+                    </div>
+                    <p>Family engagement in transition planning and implementation.</p>
+                    <ul>
+                        <li>Parent guides and toolkits</li>
+                        <li>Transition webinars and training</li>
+                        <li>Student-led IEP resources</li>
+                        <li>Post-secondary planning</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.pacer.org/transition/" target="_blank">pacer.org/transition</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📍 Local Concord/Contra Costa Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏢</div>
+                        <h4>Regional Center of the East Bay</h4>
+                    </div>
+                    <p>Provides transition services for individuals with developmental disabilities in Contra Costa County.</p>
+                    <ul>
+                        <li>Transition planning and case management</li>
+                        <li>Vocational training and job placement</li>
+                        <li>Independent living skills programs</li>
+                        <li>Day programs and community integration</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.rceb.org/" target="_blank">rceb.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(510) 383-1200</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Concord Office: 1320 Willow Pass Rd #500, Concord, CA 94520</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">💼</div>
+                        <h4>Department of Rehabilitation - Contra Costa</h4>
+                    </div>
+                    <p>State agency providing employment services for individuals with disabilities.</p>
+                    <ul>
+                        <li>Vocational assessment and counseling</li>
+                        <li>Job training and placement services</li>
+                        <li>Assistive technology for employment</li>
+                        <li>Post-secondary education support</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.dor.ca.gov/" target="_blank">dor.ca.gov</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 602-0600</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>1400 Treat Blvd #100, Walnut Creek, CA 94597</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎓</div>
+                        <h4>Diablo Valley College - DSPS</h4>
+                    </div>
+                    <p>Disabled Students Programs and Services at local community college in Pleasant Hill.</p>
+                    <ul>
+                        <li>Academic accommodations and support</li>
+                        <li>Counseling and educational planning</li>
+                        <li>Assistive technology</li>
+                        <li>High school to college transition support</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.dvc.edu/student-services/dsps/" target="_blank">dvc.edu/dsps</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 685-1230</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+<div class="resource-icon">🏭</div>
+                        <h4>Futures Explored (Oakland)</h4>
+                    </div>
+                    <p>Adult transition and employment services for individuals with developmental disabilities.</p>
+                    <ul>
+                        <li>Customized employment services</li>
+                        <li>Day program activities</li>
+                        <li>Community integration</li>
+                        <li>Serves Contra Costa residents</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.futuresexplored.org/" target="_blank">futuresexplored.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(510) 841-5168</span>
+                        </div>
+                    </div>
+                </div>
+<div class="resource-card">
+                <span class="badge local">Local</span>
+                <span class="badge new">New!</span>
+                <div class="resource-header">
+                    <div class="resource-icon">🎯</div>
+                    <h4>Raskob Institute (Oakland)</h4>
+                </div>
+                <p>Day programs and support services for adults with developmental disabilities.</p>
+                <ul>
+                    <li>Day activity programs</li>
+                    <li>Employment support</li>
+                    <li>Life skills training</li>
+                    <li>Community participation</li>
+                </ul>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <a href="https://www.raskob.org/" target="_blank">raskob.org</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>(510) 653-5332</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>⚡ Key Transition Planning Points</h3>
+            <p><strong>For Educators:</strong> Transition planning should begin no later than age 16 (earlier in California for students with significant needs). Include the student's voice in planning, focus on strengths and interests, and coordinate with families and community agencies early. Transition assessments should inform post-secondary goals in education/training, employment, and independent living.</p>
+        </div>
+    </section>
+<!-- TRAUMA RESOURCES PAGE (Enhanced) -->
+        <section id="trauma" class="page-section">
+            <h2><span>💚</span> Trauma-Informed Resources</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Understanding trauma, creating safe environments, and supporting the mental health of autistic students.</p>
+
+            <div class="printable-section">
+                <button onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <h3>🌐 National & Online Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🧠</div>
+                        <h4>National Child Traumatic Stress Network</h4>
+                    </div>
+                    <p>Comprehensive trauma-informed care resources for schools and educators.</p>
+                    <ul>
+                        <li>Trauma-informed school practices</li>
+                        <li>Creating safe and supportive classrooms</li>
+                        <li>Understanding trauma's impact on learning</li>
+                        <li>Teacher self-care strategies</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.nctsn.org/" target="_blank">nctsn.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🌱</div>
+                        <h4>SAMHSA Trauma Resources</h4>
+                    </div>
+                    <p>Substance Abuse and Mental Health Services Administration trauma-informed approach resources.</p>
+                    <ul>
+                        <li>Trauma-informed care principles</li>
+                        <li>School-based interventions</li>
+                        <li>Crisis response guidelines</li>
+                        <li>Community resources toolkit</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.samhsa.gov/trauma-violence" target="_blank">samhsa.gov/trauma-violence</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎯</div>
+                        <h4>Autistic Self Advocacy Network</h4>
+                    </div>
+                    <p>Autistic-led organization providing resources on supporting autistic individuals' mental health.</p>
+                    <ul>
+                        <li>Understanding autistic trauma responses</li>
+                        <li>Communication strategies</li>
+                        <li>Sensory considerations in trauma</li>
+                        <li>Self-advocacy tools</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://autisticadvocacy.org/" target="_blank">autisticadvocacy.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🛡️</div>
+                        <h4>Zones of Regulation</h4>
+                    </div>
+                    <p>Framework for teaching self-regulation and emotional control, particularly helpful for trauma-affected students.</p>
+                    <ul>
+                        <li>Visual framework for emotions</li>
+                        <li>Classroom implementation guides</li>
+                        <li>Sensory strategies</li>
+                        <li>Co-regulation techniques</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.zonesofregulation.com/" target="_blank">zonesofregulation.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">❤️</div>
+                        <h4>PACE (Playfulness, Acceptance, Curiosity, Empathy)</h4>
+                    </div>
+                    <p>Dan Hughes' trauma-informed approach to building therapeutic relationships.</p>
+                    <ul>
+                        <li>Relational strategies for trauma</li>
+                        <li>Building trust and safety</li>
+                        <li>Understanding behavior through empathy</li>
+                        <li>Applicable to classroom settings</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://ddpnetwork.org/" target="_blank">ddpnetwork.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge online">Online</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏫</div>
+                        <h4>Trauma-Sensitive Schools (TLPI)</h4>
+                    </div>
+                    <p>The Trauma and Learning Policy Initiative's comprehensive training package.</p>
+                    <ul>
+                        <li>Flexible framework for implementation</li>
+                        <li>Whole-school approach</li>
+                        <li>Professional development modules</li>
+                        <li>Evidence-based strategies</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://traumasensitiveschools.org/" target="_blank">traumasensitiveschools.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📍 Local Concord/Contra Costa Resources</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏥</div>
+                        <h4>Contra Costa Behavioral Health Services</h4>
+                    </div>
+                    <p>County mental health services including child and adolescent programs.</p>
+                    <ul>
+                        <li>School-based mental health services</li>
+                        <li>Crisis intervention</li>
+                        <li>Therapy and counseling services</li>
+                        <li>Family support programs</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://cchealth.org/mentalhealth/" target="_blank">cchealth.org/mentalhealth</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>Crisis Line: (800) 833-2900</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>Main: (925) 957-5140</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">💙</div>
+                        <h4>NAMI Contra Costa</h4>
+                    </div>
+                    <p>National Alliance on Mental Illness local chapter providing education and support.</p>
+                    <ul>
+                        <li>Mental health education programs</li>
+                        <li>Support groups for families</li>
+                        <li>School presentations available</li>
+                        <li>Resource referrals</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://namicontracosta.org/" target="_blank">namicontracosta.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 289-1047</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Local</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🌟</div>
+                        <h4>Seneca Family of Agencies</h4>
+                    </div>
+                    <p>Provides mental health and supportive services to children and families in Contra Costa.</p>
+                    <ul>
+                        <li>School-based therapy services</li>
+                        <li>Trauma-informed interventions</li>
+                        <li>Family support services</li>
+                        <li>Crisis stabilization</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.senecafoa.org/" target="_blank">senecafoa.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(510) 654-4004</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>🔑 Key Trauma-Informed Principles</h3>
+                <p><strong>Remember:</strong> Safety, trustworthiness, peer support, collaboration, empowerment, and cultural sensitivity are core principles. For autistic students, also consider sensory needs, communication differences, and the importance of predictability and routine. Trauma responses in autistic individuals may look different - meltdowns, shutdowns, or increased rigidity can all be trauma responses.</p>
+            </div>
+
+            <div class="quick-links-box">
+                <h3>🔗 Trauma Support Quick Links</h3>
+                <ul>
+                    <li><a href="https://www.nctsn.org/resources/creating-supporting-and-sustaining-trauma-informed-schools" target="_blank">→ Creating Trauma-Informed Schools (NCTSN)</a></li>
+                    <li><a href="https://www.samhsa.gov/sites/default/files/programs_campaigns/childrens_mental_health/atc-whitepaper-040616.pdf" target="_blank">→ Trauma-Informed Approach Guide (SAMHSA)</a></li>
+                    <li><a href="https://www.zonesofregulation.com/free-handouts.html" target="_blank">→ Free Zones of Regulation Handouts</a></li>
+                    <li><a href="https://traumasensitiveschools.org/trauma-and-learning/" target="_blank">→ Understanding Trauma and Learning</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- LOCAL RESOURCES PAGE (Enhanced) -->
+        <section id="local" class="page-section">
+            <h2><span>📍</span> Local Concord & Contra Costa Resources</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Comprehensive list of local organizations, schools, and services specifically serving the Concord and Contra Costa County area.</p>
+
+            <div class="printable-section">
+                <button onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <h3>🏫 Specialized Schools & Programs</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Concord</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎒</div>
+                        <h4>ACE Contra Costa Campus (Anova)</h4>
+                    </div>
+                    <p>Only K-12 school in Contra Costa County specializing in education for children with Autism Spectrum Disorders.</p>
+                    <ul>
+                        <li>Anova Method of Education (AME) approach</li>
+                        <li>Comprehensive therapy services in classroom</li>
+                        <li>California Department of Education curriculum</li>
+                        <li>Highly trained teachers and clinicians</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://anovaeducation.org/" target="_blank">anovaeducation.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 687-9616</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>1140 Galaxy Way, Suite 100, Concord, CA 94520</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Concord</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎓</div>
+                        <h4>Orion Academy</h4>
+                    </div>
+                    <p>First high school in California providing college-prep education specifically for students with autism spectrum disorder.</p>
+                    <ul>
+                        <li>Grades 8-12, college-prep curriculum</li>
+                        <li>UC approved course offerings</li>
+                        <li>Social skills and pragmatic language focus</li>
+                        <li>Small class sizes, individualized support</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.orionacademy.org/" target="_blank">orionacademy.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 377-0789</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>1868 Clayton Road, Concord, CA 94520</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Concord</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏫</div>
+                        <h4>Mount Diablo Unified School District</h4>
+                    </div>
+                    <p>Your local public school district serving Concord with special education programs and services.</p>
+                    <ul>
+                        <li>Special Day Classes (SDC) for autism</li>
+                        <li>Inclusion support programs</li>
+                        <li>Speech, OT, and behavioral services</li>
+                        <li>Transition programs for 18-22 year olds</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.mdusd.org/" target="_blank">mdusd.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 682-8000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>🏢 Service Agencies & Support</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Contra Costa</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🤝</div>
+                        <h4>Regional Center of the East Bay</h4>
+                    </div>
+                    <p>Primary county resource for individuals with developmental disabilities including autism.</p>
+                    <ul>
+                        <li>Case management and service coordination</li>
+                        <li>Early intervention (0-3 years)</li>
+                        <li>School-age and adult services</li>
+                        <li>Respite care and family support</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.rceb.org/" target="_blank">rceb.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>Under 3: (510) 618-6195</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>Over 3: (510) 618-6122</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Concord Office: 1320 Willow Pass Rd #500, Concord, CA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Contra Costa</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">📚</div>
+                        <h4>Contra Costa SELPA</h4>
+                    </div>
+                    <p>Special Education Local Plan Area providing technical assistance and professional development.</p>
+                    <ul>
+                        <li>Educator training and workshops</li>
+                        <li>IEP consultation and support</li>
+                        <li>Assistive technology resources</li>
+                        <li>Autism-specific consultation services</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.cocosped.org/" target="_blank">cocosped.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(925) 942-3388</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Contra Costa</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🩺</div>
+                        <h4>BM Behavioral Center</h4>
+                    </div>
+                    <p>ABA therapy services in Contra Costa County for children with autism.</p>
+                    <ul>
+                        <li>Applied Behavior Analysis therapy</li>
+                        <li>Individualized treatment plans</li>
+                        <li>Registered Behavior Technicians</li>
+                        <li>Family participation in treatment</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://bmbehavioralcenter.com/contra-costa/" target="_blank">bmbehavioralcenter.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Bay Area</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🏥</div>
+                        <h4>UCSF Autism Center</h4>
+                    </div>
+                    <p>Comprehensive autism evaluation, treatment, and research center serving the Bay Area.</p>
+                    <ul>
+                        <li>Diagnostic evaluations</li>
+                        <li>Treatment and intervention programs</li>
+                        <li>Parent training and support</li>
+                        <li>Research opportunities</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://autism.ucsf.edu/" target="_blank">autism.ucsf.edu</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(415) 476-5700</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Bay Area</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎯</div>
+                        <h4>Center for Autism and Related Disorders (CARD)</h4>
+                    </div>
+                    <p>ABA therapy and autism treatment with multiple Bay Area locations.</p>
+                    <ul>
+                        <li>Comprehensive ABA services</li>
+                        <li>Early intervention programs</li>
+                        <li>School consultation services</li>
+                        <li>Parent training</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.centerforautism.com/" target="_blank">centerforautism.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>💙 Support Organizations</h3>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="badge local">Bay Area</span>
+                    <span class="badge new">Essential!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🌈</div>
+                        <h4>Autism Society San Francisco Bay Area</h4>
+                    </div>
+                    <p>Local chapter providing community support, resources, and advocacy.</p>
+                    <ul>
+                        <li>Support groups for families and educators</li>
+                        <li>Community events and social programs</li>
+                        <li>Educational workshops and conferences</li>
+                        <li>Resource navigation assistance</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.sfautismsociety.org/" target="_blank">sfautismsociety.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>info@sfautismsociety.org</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Contra Costa</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🌟</div>
+                        <h4>The Arc of Contra Costa</h4>
+                    </div>
+                    <p>Advocacy organization for individuals with intellectual and developmental disabilities.</p>
+                    <ul>
+                        <li>Family support and resources</li>
+                        <li>Advocacy and rights information</li>
+                        <li>Community programs</li>
+                        <li>Educational workshops</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.arcofc.org/" target="_blank">arcofc.org</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Contra Costa</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🤲</div>
+                        <h4>Family Resource Centers</h4>
+                    </div>
+                    <p>County-operated centers providing family support and resources.</p>
+                    <ul>
+                        <li>Parent education and workshops</li>
+                        <li>Resource and referral services</li>
+                        <li>Family activities and events</li>
+                        <li>Connection to community services</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.contracosta.ca.gov/1146/Family-Resource-Centers" target="_blank">contracosta.ca.gov/frc</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Bay Area</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">👨‍👩‍👧</div>
+                        <h4>Parents Helping Parents</h4>
+                    </div>
+                    <p>Family resource center serving the Bay Area with support for families of children with special needs.</p>
+                    <ul>
+                        <li>Parent-to-parent support matching</li>
+                        <li>Educational workshops and conferences</li>
+                        <li>Resource library</li>
+                        <li>Sibling support programs</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.php.com/" target="_blank">php.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>(408) 727-5775</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <span class="badge local">Bay Area</span>
+                    <span class="badge new">New!</span>
+                    <div class="resource-header">
+                        <div class="resource-icon">🎭</div>
+                        <h4>Bay Area Autism Society</h4>
+                    </div>
+                    <p>Social groups, recreational programs, and community events for autistic individuals and families.</p>
+                    <ul>
+                        <li>Social skills groups</li>
+                        <li>Recreational activities and outings</li>
+                        <li>Teen and adult programs</li>
+                        <li>Family events</li>
+                    </ul>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="http://www.bayareaautismsociety.org/" target="_blank">bayareaautismsociety.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>📞 Important Local Contact Numbers</h3>
+                <p><strong>Crisis Support:</strong> Contra Costa Crisis Line: (800) 833-2900 (24/7)<br>
+                <strong>Regional Center Intake:</strong> Under 3: (510) 618-6195 | Over 3: (510) 618-6122<br>
+                <strong>SELPA:</strong> (925) 942-3388<br>
+                <strong>Behavioral Health:</strong> (925) 957-5140<br>
+                <strong>MDUSD Special Ed:</strong> (925) 682-8000<br>
+                <strong>988 Suicide & Crisis Lifeline:</strong> Call or text 988</p>
+            </div>
+
+            <div class="download-box">
+                <h3>📥 Save This Information</h3>
+                <p>Print this page or download our quick reference guide to keep these important contacts handy.</p>
+                <button onclick="window.print()" class="btn-success">🖨️ Print Contact List</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Autism Resources for K-12 Educators</strong></p>
+        <p>Serving Concord, CA and Contra Costa County</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Last Updated: November 2025</p>
+        <p style="font-size: 0.9rem;">This website provides general information and resources. Always verify current contact information and services.</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">For questions or to suggest additional resources, contact your school district's special education department.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </div>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Back to top button
+        window.onscroll = function() {
+            const backToTop = document.getElementById('backToTop');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Search function
+        function searchResources() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.resource-card');
+            let foundAny = false;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = '';
+                    foundAny = true;
+                } else {
+                    card.style.display = input === '' ? '' : 'none';
+                }
+            });
+        }
+
+        // Download quick reference (creates a simple text list)
+        function downloadQuickReference() {
+            const content = `AUTISM RESOURCES - QUICK REFERENCE GUIDE
+Concord, CA & Contra Costa County
+
+=== CRISIS CONTACTS ===
+Contra Costa Crisis Line: (800) 833-2900 (24/7)
+988 Suicide & Crisis Lifeline: Call/Text 988
+National Suicide Prevention Lifeline:
+1-800-273-8255
+=== REGIONAL CENTER ===
+Regional Center of the East Bay (RCEB)
+Under 3: (510) 618-6195
+Over 3: (510) 618-6122
+Website: rceb.org
+Concord Office: 1320 Willow Pass Rd #500, Concord, CA 94520
+=== SCHOOLS & EDUCATION ===
+Mount Diablo USD: (925) 682-8000
+Contra Costa SELPA: (925) 942-3388
+ACE Contra Costa: (925) 687-9616
+Orion Academy: (925) 377-0789
+=== MENTAL HEALTH ===
+Contra Costa Behavioral Health: (925) 957-5140
+NAMI Contra Costa: (925) 289-1047
+Seneca Family of Agencies: (510) 654-4004
+=== TRANSITION & EMPLOYMENT ===
+Dept of Rehabilitation: (925) 602-0600
+Diablo Valley College DSPS: (925) 685-1230
+=== SUPPORT ORGANIZATIONS ===
+Autism Society SF Bay Area: sfautismsociety.org
+The Arc of Contra Costa: arcofc.org
+Parents Helping Parents: (408) 727-5775
+=== ONLINE RESOURCES ===
+AFIRM: afirm.fpg.unc.edu
+Do2Learn (free printables): do2learn.com
+IRIS Center: iris.peabody.vanderbilt.edu
+Understood.org: understood.org
+PBIS.org: pbis.org
+Last Updated: November 2025
+Full resource guide: https://rsullyhue.github.io/Resource-Guide/`;
+const blob = new Blob([content], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Autism-Resources-Quick-Reference.txt';
+        link.click();
+    }
+</script>
+</body>
+</html>
