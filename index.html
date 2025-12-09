@@ -103,16 +103,6 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .card-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
         .section {
             background: white;
             border-radius: 10px;
@@ -128,39 +118,44 @@
             border-bottom: 3px solid #667eea;
         }
 
-        .section h3 {
-            color: #764ba2;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .resource {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
+        .resource-item {
+            margin-bottom: 30px;
             padding: 20px;
-            margin-bottom: 25px;
+            border-left: 4px solid #764ba2;
+            background: #f8f9fa;
             border-radius: 5px;
         }
 
-        .resource h4 {
-            color: #333;
-            margin-bottom: 12px;
-            font-size: 1.3em;
+        .resource-item:last-child {
+            margin-bottom: 0;
         }
 
-        .resource-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
+        .resource-title {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .resource-link {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .resource-link:hover {
+            color: #667eea;
+            text-decoration: underline;
         }
 
         .badge {
             display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 0.85em;
-            font-weight: 500;
+            font-weight: 600;
+            margin-left: 10px;
         }
 
         .badge-online {
@@ -174,48 +169,36 @@
         }
 
         .resource-description {
-            margin-bottom: 15px;
-            line-height: 1.8;
+            color: #666;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .resource-why,
+        .resource-evidence,
+        .resource-features {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
         }
 
         .resource-why {
-            background: #fff3e0;
-            border-left: 3px solid #ff9800;
-            padding: 12px;
-            margin-bottom: 12px;
-            border-radius: 4px;
-        }
-
-        .resource-why strong {
-            color: #e65100;
-            display: block;
-            margin-bottom: 5px;
+            border-left: 3px solid #4caf50;
         }
 
         .resource-evidence {
-            background: #e8f5e9;
-            border-left: 3px solid #4caf50;
-            padding: 12px;
-            margin-bottom: 12px;
-            border-radius: 4px;
-        }
-
-        .resource-evidence strong {
-            color: #2e7d32;
-            display: block;
-            margin-bottom: 5px;
+            border-left: 3px solid #2196f3;
         }
 
         .resource-features {
-            background: #e3f2fd;
-            border-left: 3px solid #2196f3;
-            padding: 12px;
-            margin-bottom: 12px;
-            border-radius: 4px;
+            border-left: 3px solid #ff9800;
         }
 
+        .resource-why strong,
+        .resource-evidence strong,
         .resource-features strong {
-            color: #1565c0;
+            color: #667eea;
             display: block;
             margin-bottom: 8px;
         }
@@ -229,63 +212,26 @@
             margin-bottom: 5px;
         }
 
-        .resource-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .resource-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 8px 16px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .resource-links a:hover {
-            background: #764ba2;
-        }
-
-        .contact-info {
-            margin-top: 10px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .info-box {
-            background: #fff8e1;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .info-box h4 {
-            color: #f57f17;
-            margin-bottom: 10px;
-        }
-
         footer {
-            text-align: center;
-            color: white;
+            background: white;
+            border-radius: 10px;
             padding: 20px;
-            margin-top: 40px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         footer p {
-            margin-bottom: 10px;
-            opacity: 0.9;
+            color: #666;
         }
 
         @media (max-width: 768px) {
             header h1 {
-                font-size: 1.8em;
+                font-size: 2em;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
             }
 
             nav {
@@ -293,11 +239,8 @@
             }
 
             nav a {
+                width: 100%;
                 text-align: center;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -305,1214 +248,632 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎓 Autism Resources for Educators</h1>
-            <p>Comprehensive resources for educators in Concord, CA and beyond</p>
+            <h1>🧩 Autism Resources for K-12 Educators</h1>
+            <p>A Comprehensive Guide for Educators in Concord, CA & Contra Costa County</p>
         </header>
 
         <nav>
-            <a href="#home">🏠 Home</a>
-            <a href="#academic">📚 Academic</a>
-            <a href="#transition">🎓 Transition</a>
-            <a href="#trauma">💚 Trauma</a>
-            <a href="#local">📍 Local</a>
+            <a href="#academic">Academic Supports</a>
+            <a href="#transition">Transition Services</a>
+            <a href="#trauma">Trauma-Informed Practices</a>
+            <a href="#local">Local Schools & Programs</a>
+            <a href="#contact">Contact</a>
         </nav>
 
-        <!-- Welcome Section -->
-        <div id="home" class="welcome-section">
-            <h2>🏠 Welcome Educators</h2>
-            <p>This resource guide provides evidence-based strategies, local Concord/Contra Costa County resources, and national tools to support autistic students across K-12 settings.</p>
-            
-            <div class="card-grid" style="margin-top: 30px;">
-                <div class="card" onclick="location.href='#academic'">
-                    <div class="card-icon">📚</div>
-                    <h3>Academic Supports</h3>
-                    <p>Classroom strategies, accommodations, and teaching methods for academic success.</p>
-                </div>
-                <div class="card" onclick="location.href='#transition'">
-                    <div class="card-icon">🎓</div>
-                    <h3>Transition Supports</h3>
-                    <p>Resources for transitions between grades, schools, and into post-secondary life.</p>
-                </div>
-                <div class="card" onclick="location.href='#trauma'">
-                    <div class="card-icon">💚</div>
-                    <h3>Trauma-Informed Practices</h3>
-                    <p>Understanding trauma and supporting mental health for autistic students.</p>
-                </div>
-                <div class="card" onclick="location.href='#local'">
-                    <div class="card-icon">📍</div>
-                    <h3>Local Concord Resources</h3>
-                    <p>Concord, CA and Contra Costa County organizations and services.</p>
-                </div>
-            </div>
-
-            <div class="info-box">
-                <h4>💡 How to Use This Site</h4>
-                <p>Click on any section above or use the navigation menu to explore topics. Resources are marked with badges showing if they're local or web-based. Each resource now includes detailed information about why it's useful, what makes it trustworthy, and specific features available.</p>
-            </div>
+        <div class="welcome-section">
+            <h2>Welcome!</h2>
+            <p>This resource guide was created for educators working with autistic students in K-12 settings, particularly in the Concord, CA and Contra Costa County area. Whether you're looking for evidence-based academic interventions, transition support, trauma-informed practices, or local service providers, you'll find vetted, practical resources here.</p>
+            <p style="margin-top: 15px;">All resources listed are free or publicly accessible unless otherwise noted. Resources are organized by category for easy navigation.</p>
         </div>
 
         <!-- Academic Supports Section -->
-        <div id="academic" class="section">
-            <h2>📚 Academic Supports</h2>
-            <p>Evidence-based strategies and accommodations to support autistic learners' academic success.</p>
-
-            <h3>🌐 National & Online Resources</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
+        <section id="academic" class="section">
+            <h2>📚 Academic Supports & Evidence-Based Practices</h2>
+            
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://afirm.fpg.unc.edu/" class="resource-link" target="_blank">AFIRM (Autism Focused Intervention Resources & Modules)</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">📖</span>
                 </div>
-                <h4>AFIRM</h4>
-                <p class="resource-description">Autism Focused Intervention Resources & Modules - Free evidence-based practices for teaching autistic students.</p>
+                <p class="resource-description">Free evidence-based practices for teaching autistic students.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    AFIRM breaks down complex evidence-based practices into step-by-step implementation guides that teachers can actually use in their classrooms. Instead of just telling you what works, it shows you exactly how to do it with real examples. This is especially helpful for teachers who are new to working with autistic students or need to implement a specific practice they haven't used before.
+                    <strong>Why I include this:</strong>
+                    AFIRM has been a lifesaver for me as a newer special ed teacher. It's not just theory, they actually show you step-by-step how to implement each practice with real classroom examples. I've used their visual support module and prompting strategies guide when writing my lesson plans this year. The video examples are especially helpful because you can see what it actually looks like in a classroom, not just read about it.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    AFIRM is developed by the Frank Porter Graham Child Development Institute at UNC Chapel Hill and funded by the U.S. Department of Education's Office of Special Education Programs. All 27 practices included are identified as evidence-based through rigorous research reviews conducted by the National Professional Development Center on Autism Spectrum Disorder. Each practice has been validated through multiple peer-reviewed studies showing positive outcomes for autistic learners.
+                    <strong>What you need to know:</strong>
+                    Run by UNC Chapel Hill (Frank Porter Graham Institute) with DOE funding. They review research to identify which practices actually work, so all 27 practices on there have solid evidence behind them.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What's on there:</strong>
                     <ul>
-                        <li>27 evidence-based practices with complete implementation guides</li>
-                        <li>Downloadable briefs explaining each practice in plain language</li>
-                        <li>Implementation checklists to track fidelity</li>
-                        <li>Video examples showing practices in real classroom settings</li>
-                        <li>Case studies demonstrating how to apply practices to different students</li>
-                        <li>Professional development modules for self-paced learning</li>
-                        <li>Fidelity tools to assess how well you're implementing each practice</li>
+                        <li>Implementation guides for 27 evidence-based practices</li>
+                        <li>Checklists you can actually use to make sure you're doing it right</li>
+                        <li>Video examples (these are really helpful)</li>
+                        <li>Case studies</li>
+                        <li>Self-paced PD modules</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://afirm.fpg.unc.edu/" target="_blank">🌐 Visit Website</a>
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://iris.peabody.vanderbilt.edu/" class="resource-link" target="_blank">IRIS Center, Autism Modules</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🎯</span>
                 </div>
-                <h4>IRIS Center - Autism Modules</h4>
-                <p class="resource-description">Free online training modules for educators working with autistic students.</p>
+                <p class="resource-description">Professional development modules for teachers.</p>
                 
                 <div class="resource-why">
                     <strong>Why it's useful:</strong>
-                    The IRIS Center provides free, comprehensive training modules that you can complete at your own pace. These are perfect for professional development hours or when you need to learn about a specific topic quickly. The modules use real-world scenarios and case studies, so you're learning practical strategies you can implement immediately rather than just theoretical information.
+                    Perfect for when you need PD hours or want to learn about something specific quickly. I used their modules when I was trying to figure out better ways to accommodate reading for some of my students. The scenarios feel realistic and you can work through them at your own pace. Plus you get a certificate at the end which is nice for your file.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Created by Vanderbilt University's Peabody College and funded by the U.S. Department of Education's Office of Special Education Programs, the IRIS Center bases all modules on peer-reviewed research and evidence-based practices. Content is developed in collaboration with national experts in special education and regularly updated to reflect current research. The center has been producing high-quality training materials for educators since 2001.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What's on there:</strong>
                     <ul>
-                        <li>Interactive modules with built-in assessments for understanding</li>
-                        <li>Downloadable resources including accommodation checklists</li>
-                        <li>Case-based scenarios for practicing decision-making</li>
-                        <li>Video examples of strategies in action</li>
-                        <li>Printable summaries and implementation guides</li>
-                        <li>Modules on reading accommodations, math modifications, behavior support, and assistive technology</li>
-                        <li>IEP development resources specific to autism</li>
-                        <li>Certificate of completion for professional development credit</li>
+                        <li>Interactive modules with quizzes</li>
+                        <li>Accommodation checklists (I've printed several of these)</li>
+                        <li>Video examples</li>
+                        <li>Resources on behavior support, assistive tech, IEP development</li>
+                        <li>Certificates for PD credit</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://iris.peabody.vanderbilt.edu/" target="_blank">🌐 Visit Website</a>
+                    It's from Vanderbilt and funded by the Department of Education, so it's legit research-based stuff.
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.understood.org/" class="resource-link" target="_blank">Understood.org</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🔤</span>
                 </div>
-                <h4>Understood.org</h4>
-                <p class="resource-description">Comprehensive resources for learning differences including autism-specific classroom strategies.</p>
+                <p class="resource-description">Parent and educator resources on learning differences and disabilities.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    Understood provides practical, jargon-free resources that help you understand what different learning differences look like in the classroom and how to address them. The site is particularly valuable for communicating with parents since it offers resources for both educators and families in accessible language. You can quickly find accommodation ideas, understand why certain behaviors happen, and get strategies that actually work in busy classrooms.
+                    <strong>Why I recommend it:</strong>
+                    Good for teachers but especially helpful to share with families who need plain-language explanations of stuff. I've sent parents here when they're trying to understand their child's IEP or want ideas for home. The IEP goal bank is something I use when I'm writing goals, it helps me make sure my language is clear and measurable.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Understood is a nonprofit supported by 15 founding nonprofit organizations focused on learning and attention issues. All content is reviewed by an editorial team that includes licensed psychologists, special education experts, and educators with advanced degrees. The organization partners with major universities and research institutions to ensure accuracy. Content is grounded in research but translated into practical, accessible language for teachers and parents.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What it has:</strong>
                     <ul>
-                        <li>Free downloadable accommodation and modification lists organized by subject</li>
-                        <li>IEP goal bank with hundreds of standards-aligned goals</li>
-                        <li>Assistive technology recommendation tool</li>
-                        <li>Parent-teacher communication templates</li>
-                        <li>Visual supports and graphic organizers ready to print</li>
-                        <li>Behavior tracking sheets and forms</li>
-                        <li>Video library showing strategies in practice</li>
-                        <li>Simulation tools to help understand what students experience</li>
-                        <li>Differentiation strategies for reading, writing, and math</li>
+                        <li>IEP goal bank (this is really helpful)</li>
+                        <li>Articles on accommodations and modifications</li>
+                        <li>Parent-friendly explanations</li>
+                        <li>Advocacy tips</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.understood.org/" target="_blank">🌐 Visit Website</a>
+                    It's a nonprofit, so no ads or weird sales pitches. Everything is written to be accessible.
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.researchautism.org/" class="resource-link" target="_blank">Organization for Autism Research (OAR)</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🧩</span>
                 </div>
-                <h4>Organization for Autism Research</h4>
-                <p class="resource-description">Research-based resources including "Life Journey Through Autism" guidebooks.</p>
+                <p class="resource-description">Applied research and practical tools for autism.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    OAR focuses on applied research that directly improves the lives of autistic individuals. Their guidebooks and resources are specifically designed to answer the practical questions educators and families have. The "Life Journey Through Autism" series provides developmentally appropriate guidance from early childhood through adulthood, making it valuable regardless of what grade level you teach.
+                    <strong>What it is:</strong>
+                    I haven't used this one as much as AFIRM, but their "Life Journey Through Autism" guidebooks are really comprehensive. They cover different life stages and are written for families and educators. If you're working with older students and thinking about transition, their guides on adult life are solid.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    OAR is a national nonprofit dedicated to funding applied autism research. They fund peer-reviewed research studies and synthesize findings into accessible resources. All materials are reviewed by their scientific council, which includes leading autism researchers and clinicians. The organization has funded over $5 million in autism research and maintains strict standards for evidence quality before including strategies in their publications.
-                </div>
-
-                <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
-                    <ul>
-                        <li>"A Guide to Safety" for teaching safety skills</li>
-                        <li>"Life Journey Through Autism" guidebooks for different age groups (early childhood, elementary, middle school, high school, adults)</li>
-                        <li>Curriculum modification strategies specific to autism characteristics</li>
-                        <li>Social skills instruction frameworks and lesson plans</li>
-                        <li>Transition planning tools and checklists</li>
-                        <li>Free webinars on current topics in autism education</li>
-                        <li>Research summaries written for practitioners</li>
-                        <li>Video resources demonstrating teaching strategies</li>
-                        <li>Downloadable visual supports and planning templates</li>
-                    </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://researchautism.org/" target="_blank">🌐 Visit Website</a>
+                    <strong>What you need to know:</strong>
+                    They fund applied research (research that's meant to be useful in real life, not just theoretical). Their guidebooks synthesize research into practical advice.
                 </div>
             </div>
 
-            <h3>📍 Local Concord/Contra Costa Resources</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.ccselpa.org/" class="resource-link" target="_blank">Contra Costa SELPA</a>
                     <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">🏫</span>
                 </div>
-                <h4>Contra Costa County SELPA</h4>
-                <p class="resource-description">Special Education Local Plan Area providing training and consultation for educators.</p>
+                <p class="resource-description">Special Education Local Plan Area for Contra Costa County.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    Your SELPA is your direct line to specialized support and training specific to California special education requirements. They can provide consultation when you're stuck on a challenging situation, connect you with behavior specialists, and offer professional development that counts toward your credential requirements. Since they work with all districts in the county, they understand local resources and how different schools handle similar situations.
+                    <strong>Why it matters:</strong>
+                    This is our county's SELPA, they coordinate special ed services across all the districts in Contra Costa. They run professional development workshops that are free for teachers in the county. I went to one on AAC implementation last year that was really practical. They also have resources on compliance stuff (assessments, IEP procedures) which is good to know when you're newer to special ed.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    SELPAs are mandated by California Education Code and governed by state special education regulations. They must provide services that align with federal IDEA requirements and California's specific standards. The SELPA employs credentialed special education specialists, licensed psychologists, and behavior analysts who stay current on research-based practices through ongoing professional development. Their training offerings are vetted to ensure alignment with evidence-based practices.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What they offer:</strong>
                     <ul>
-                        <li>Professional development workshops throughout the year on topics like behavior intervention, autism-specific strategies, and IEP compliance</li>
-                        <li>Direct consultation services for complex student situations</li>
-                        <li>Autism-specific technical assistance</li>
-                        <li>IEP and assessment support including help with writing goals</li>
-                        <li>Access to specialists (behavior analysts, assistive technology consultants)</li>
-                        <li>Resource library including assessment tools and curriculum materials</li>
-                        <li>Low-incidence support for students with autism</li>
-                        <li>Training on California-specific requirements and compliance</li>
+                        <li>Free PD workshops for county educators</li>
+                        <li>Technical assistance</li>
+                        <li>Special ed compliance resources</li>
+                        <li>Low-incidence materials (for kids with significant disabilities)</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.cocosped.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 942-3388
+                    They're required by California Ed Code, so they're the official entity for special ed coordination in our county.
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.mdusd.org/departments/educational_services/special_education" class="resource-link" target="_blank">Mount Diablo Unified School District (MDUSD) Special Education</a>
                     <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">🎓</span>
                 </div>
-                <h4>Mt. Diablo Unified School District</h4>
-                <p class="resource-description">District-level special education resources serving Concord and surrounding areas.</p>
+                <p class="resource-description">Local district special education services.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    As the local district serving Concord, MDUSD provides direct special education services and supports. This is where you'll access speech services, OT, behavior support, and assistive technology for your students. The district-level special education department can help with everything from IEP questions to accessing specialized programs. If you teach in MDUSD, this is your primary resource for direct student services and colleague collaboration.
+                    <strong>What you need to know:</strong>
+                    My district! This is where I work, so I'm obviously biased, but MDUSD offers the full range of special ed services from inclusion support to specialized SDC classes (like mine). If you're in the area and looking for placement options or want to know what services are available locally, this is where to start.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    MDUSD is bound by federal IDEA requirements and California Education Code standards for special education services. The district employs credentialed special education teachers, licensed therapists (speech, OT), and Board Certified Behavior Analysts. Services must be based on student need as determined through assessments and aligned with evidence-based practices to meet FAPE (Free Appropriate Public Education) requirements. The district receives oversight from the California Department of Education and must demonstrate positive student outcomes.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Services available:</strong>
                     <ul>
-                        <li>Special Day Classes (SDC) for students with moderate to severe autism</li>
-                        <li>Inclusion support including push-in services and co-teaching models</li>
-                        <li>Related services: speech therapy, occupational therapy, adaptive PE</li>
-                        <li>Behavior intervention specialists and support</li>
-                        <li>Assistive technology lending library and AT assessments</li>
-                        <li>Transition program for students ages 18-22</li>
-                        <li>Parent education workshops and family support nights</li>
-                        <li>Access to district specialists and resource teachers</li>
-                        <li>Professional development for staff on autism-specific strategies</li>
-                        <li>Collaboration opportunities with other special education teachers in the district</li>
+                        <li>Full continuum of services (inclusion to SDC)</li>
+                        <li>Related services (speech, OT, APE, etc.)</li>
+                        <li>Transition program for 18-22 year olds</li>
+                        <li>Assistive technology support</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.mdusd.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 682-8000
+                    We follow IDEA requirements like all public schools in California.
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Transition Supports Section -->
-        <div id="transition" class="section">
-            <h2>🎓 Transition Supports</h2>
-            <p>Resources for supporting autistic students through school transitions and preparation for post-secondary life, employment, and independent living.</p>
-
-            <h3>🌐 National & Online Resources</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
+        <!-- Transition Services Section -->
+        <section id="transition" class="section">
+            <h2>🎓 Transition Services & Post-Secondary Support</h2>
+            
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.transitionta.org/" class="resource-link" target="_blank">NTACT (National Technical Assistance Center on Transition)</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🚀</span>
                 </div>
-                <h4>NTACT</h4>
-                <p class="resource-description">National Technical Assistance Center on Transition - Premier resource for secondary transition.</p>
+                <p class="resource-description">Evidence-based practices for transition planning.</p>
                 
                 <div class="resource-why">
                     <strong>Why it's useful:</strong>
-                    NTACT is the go-to resource for everything related to secondary transition. Starting at age 16 (or earlier in California), you're required to have transition planning in IEPs, and NTACT gives you the tools to do this well. They provide practical assessment tools to figure out what students actually need, not just generic transition goals. This is especially valuable when you're trying to write meaningful, individualized transition plans.
+                    When you're writing transition goals for IEPs or trying to figure out what actually helps students after high school, this is the place. They have something called the "Predictors" which are research-backed factors that lead to better post-school outcomes. I reference these when I'm justifying why we're focusing on certain transition activities.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    NTACT is funded by the U.S. Department of Education's Office of Special Education Programs and operated by leading universities specializing in transition research. All resources are based on Predictor studies showing which factors lead to positive post-school outcomes for students with disabilities. Tools and strategies are vetted through peer review and tested in real schools before being disseminated. NTACT synthesizes decades of transition research into practical applications.
+                    <strong>What you need to know:</strong>
+                    Funded by the Department of Education and run by universities. Their "evidence-based practices" and "predictors" are based on large studies tracking what actually helps students succeed after high school.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What's available:</strong>
                     <ul>
-                        <li>Age-appropriate transition assessments (interest inventories, career exploration tools)</li>
-                        <li>Evidence-based predictor practices that improve post-school outcomes</li>
-                        <li>Post-secondary education planning guides for college, vocational training, and adult education</li>
-                        <li>Employment preparation curricula and job exploration activities</li>
-                        <li>Independent living skills assessments and teaching resources</li>
-                        <li>Self-determination curriculum and tools</li>
-                        <li>Family engagement strategies for transition planning</li>
-                        <li>IEP transition goals examples aligned with student assessments</li>
-                        <li>Interagency collaboration frameworks</li>
-                        <li>Data collection tools for tracking transition services</li>
+                        <li>Predictors of Post-School Success</li>
+                        <li>Effective Practices database</li>
+                        <li>Transition assessment tools</li>
+                        <li>Sample IEP transition goals</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://transitionta.org/" target="_blank">🌐 Visit Website</a>
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.autismspeaks.org/tool-kit/employment-tool-kit" class="resource-link" target="_blank">Autism Speaks, Employment Toolkit</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">💼</span>
                 </div>
-                <h4>Autism Speaks Employment Tool Kit</h4>
-                <p class="resource-description">Comprehensive guide for preparing autistic young adults for competitive employment.</p>
+                <p class="resource-description">Resources for employment preparation and job search.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    This toolkit specifically addresses the unique challenges autistic young adults face in finding and keeping employment. It goes beyond generic job skills to address disclosure decisions, workplace communication, sensory accommodations, and interview strategies tailored to autistic strengths and challenges. The resources help you prepare students for real workplace situations they'll encounter.
+                    <strong>Full disclosure:</strong>
+                    Autism Speaks is controversial in the autistic community because of their history (they used to push cure narratives and didn't include autistic people in leadership). That said, their employment toolkit is actually pretty practical and I've used parts of it. Just wanted to be upfront about the controversy. If you use their stuff, I'd recommend also looking at ASAN's resources to get the autistic perspective.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    While Autism Speaks is a controversial organization in the autistic community, this particular toolkit was developed in collaboration with autistic adults, employment specialists, and researchers studying autism and employment outcomes. The strategies included are based on research about what actually helps autistic adults succeed in competitive employment, including studies on supported employment models and workplace accommodations. Content has been field-tested with transition-age youth and refined based on feedback.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What's in the toolkit:</strong>
                     <ul>
-                        <li>Resume templates and examples tailored for autistic job seekers</li>
-                        <li>Interview preparation materials addressing common challenges</li>
-                        <li>Workplace accommodations guide with specific examples</li>
-                        <li>Disclosure decision-making framework (whether and how to disclose autism)</li>
-                        <li>Job coaching resources for support staff</li>
-                        <li>Social skills for the workplace curriculum</li>
-                        <li>Self-advocacy tools for requesting accommodations</li>
-                        <li>Sensory considerations for different work environments</li>
-                        <li>Communication strategies for workplace interactions</li>
-                        <li>Sample accommodation request letters</li>
+                        <li>Job search strategies</li>
+                        <li>Interview prep</li>
+                        <li>Disclosure guidance (whether to tell employers)</li>
+                        <li>Workplace accommodations</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.autismspeaks.org/tool-kit/employment-tool-kit" target="_blank">🌐 Visit Website</a>
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://thinkcollege.net/" class="resource-link" target="_blank">Think College</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🏛️</span>
                 </div>
-                <h4>Think College</h4>
-                <p class="resource-description">National initiative for inclusive higher education options for students with intellectual disabilities.</p>
+                <p class="resource-description">College programs for students with intellectual disabilities.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    Many people assume college isn't an option for students with intellectual disabilities or autism, but Think College shows you what's actually possible. The database helps you find real college programs across the country that provide inclusive higher education. This expands your students' options beyond just traditional vocational programs and gives families concrete information about college as a realistic post-secondary option.
+                    <strong>What it is:</strong>
+                    A searchable database of college programs for students with intellectual disabilities. If you have students who want to go to college but need more support than typical disability services provide, this is where to look. There are over 300 programs across the country now. Some are certificate programs, some are fully inclusive.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Think College is a national initiative funded by grants from the Office of Postsecondary Education and led by the University of Massachusetts Boston's Institute for Community Inclusion. The organization conducts research on inclusive higher education outcomes and provides technical assistance to colleges developing programs. All programs in their database are verified and must meet specific quality standards. Research shows students who participate in inclusive college programs have better employment outcomes than those who don't attend college.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What you'll find:</strong>
                     <ul>
-                        <li>Searchable database of 300+ college programs for students with intellectual disabilities</li>
-                        <li>Program comparison tool to evaluate different options</li>
-                        <li>Student and family planning guides for preparing for college</li>
-                        <li>Financial aid information including federal financial aid eligibility changes</li>
-                        <li>College readiness assessments</li>
-                        <li>Self-advocacy curriculum for college success</li>
-                        <li>Parent guides addressing common questions and concerns</li>
-                        <li>Research briefs on inclusive higher education outcomes</li>
-                        <li>Videos featuring students in inclusive college programs</li>
-                        <li>Professional development for college personnel</li>
+                        <li>Searchable database of 300+ programs</li>
+                        <li>Program comparison tools</li>
+                        <li>Research on postsecondary outcomes</li>
+                        <li>Family guides</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://thinkcollege.net/" target="_blank">🌐 Visit Website</a>
+                    It's a project of the Institute for Community Inclusion at UMass Boston, funded by federal grants.
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.transitioncoalition.org/" class="resource-link" target="_blank">Transition Coalition</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🎯</span>
                 </div>
-                <h4>Transition Coalition</h4>
-                <p class="resource-description">Evidence-based transition assessment and planning tools for educators.</p>
+                <p class="resource-description">Transition assessment and planning tools.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    The Transition Coalition provides practical, research-based assessment tools that go beyond checking boxes. Their assessments actually help you understand what students want, what they can do, and what they need to learn before graduation. The person-centered planning resources help you involve students meaningfully in their own transition planning, which is required by law but often hard to do well.
+                    <strong>Why I use it:</strong>
+                    They have a bunch of free assessment tools for transition planning, person-centered planning activities, and resources on self-determination. The person-centered planning stuff is especially good if you're trying to make IEP meetings less school-driven and more focused on what the student actually wants.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    The Transition Coalition is a collaboration between the University of Kansas and other universities known for transition research. Resources are grounded in evidence-based practices identified through systematic research reviews. Assessment tools have been field-tested across multiple states and refined based on reliability and validity studies. The coalition follows person-centered planning principles that have strong research support for improving student outcomes.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Available resources:</strong>
                     <ul>
-                        <li>Age-appropriate transition assessments (middle school through age 22)</li>
-                        <li>Interest inventories and career exploration assessments</li>
-                        <li>Person-centered planning facilitation guides</li>
-                        <li>IEP transition goals bank organized by domain (education, employment, independent living)</li>
-                        <li>Self-determination assessment and curriculum</li>
-                        <li>Student-directed IEP planning materials</li>
-                        <li>Family interview protocols for gathering input</li>
-                        <li>Community-based assessment tools</li>
-                        <li>Video examples of person-centered planning meetings</li>
-                        <li>Professional development modules on transition assessment</li>
-                        <li>Data collection forms for tracking progress</li>
+                        <li>Free transition assessments</li>
+                        <li>Person-centered planning materials</li>
+                        <li>Self-determination resources</li>
+                        <li>Sample forms and checklists</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://transitioncoalition.org/" target="_blank">🌐 Visit Website</a>
+                    Run by the University of Kansas with federal funding.
                 </div>
             </div>
 
-            <h3>📍 Local Concord/Contra Costa Resources</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.rceb.org/" class="resource-link" target="_blank">Regional Center of the East Bay (RCEB)</a>
                     <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">🏢</span>
                 </div>
-                <h4>Regional Center of the East Bay</h4>
-                <p class="resource-description">Provides transition services for individuals with developmental disabilities in Contra Costa County.</p>
+                <p class="resource-description">Lifelong services for individuals with developmental disabilities.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    RCEB is the primary funding source for services beyond what schools provide. They can fund job coaching, day programs, behavioral services, and respite care for families. As students approach transition age (18-22), RCEB becomes crucial for setting up adult services. Building relationships with RCEB case managers early helps ensure smooth transitions from school to adult services. Many students are eligible for services you might not know about.
+                    <strong>This is huge:</strong>
+                    RCEB funds services that schools don't cover, respite for families, behavioral services outside school, day programs, supported living. As students get closer to transition age (18-22), RCEB becomes critical for setting up adult services. I've learned to start connecting families early because the earlier you build that relationship with a case manager, the smoother transition goes.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Regional Centers are part of California's Lanterman Act system, established in 1969 to provide services for individuals with developmental disabilities. RCEB is a private nonprofit contracted with the California Department of Developmental Services and must follow state regulations and federal requirements. Services funded must be necessary and provided by qualified vendors who meet state certification standards. RCEB is required to use person-centered planning and provide services that support community integration based on decades of deinstitutionalization research.
+                    <strong>What you need to know:</strong>
+                    Regional centers are mandated by the Lanterman Act (California law). RCEB serves Alameda and Contra Costa counties. They develop an Individual Program Plan (IPP) which is like an IEP but for life, not just school.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What they provide:</strong>
                     <ul>
-                        <li>Intake assessments and eligibility determination</li>
-                        <li>Case management and service coordination</li>
-                        <li>Individual Program Plan (IPP) development using person-centered planning</li>
-                        <li>Funding for job coaching and supported employment</li>
-                        <li>Day programs and community-based services</li>
-                        <li>Independent living skills training and support</li>
-                        <li>Respite care for families</li>
-                        <li>Behavioral services and consultation</li>
-                        <li>Assistive technology funding</li>
-                        <li>Housing support and planning</li>
-                        <li>Crisis intervention services</li>
-                        <li>Family support services and parent training</li>
-                        <li>Connection to community resources and providers</li>
+                        <li>Case management</li>
+                        <li>Respite care</li>
+                        <li>Supported employment</li>
+                        <li>Day programs</li>
+                        <li>Residential services</li>
+                        <li>Behavior support</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.rceb.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (510) 383-1200<br>
-                    📍 Concord Office: 1320 Willow Pass Rd #500, Concord, CA 94520
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.dor.ca.gov/Home/ContactUs" class="resource-link" target="_blank">Department of Rehabilitation (DOR), Contra Costa</a>
                     <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">💼</span>
                 </div>
-                <h4>Department of Rehabilitation - Contra Costa</h4>
-                <p class="resource-description">State agency providing employment services for individuals with disabilities.</p>
+                <p class="resource-description">Vocational rehabilitation and employment services.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    DOR provides free vocational services for students with disabilities transitioning to employment. They fund job training, help with job placement, and can pay for assistive technology needed for work. Unlike schools, DOR continues supporting individuals throughout their working years, not just until age 22. Starting DOR involvement during high school (often junior or senior year) gives students a head start on employment preparation.
+                    <strong>What it does:</strong>
+                    DOR helps people with disabilities get jobs. They can pay for job coaching, vocational training, even college if it's related to an employment goal. Students can apply while still in high school (usually junior or senior year), which gives you time to coordinate between school and DOR for transition.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    DOR is a California state agency operating under the federal Rehabilitation Act and Workforce Innovation and Opportunity Act (WIOA). Services are based on evidence-based vocational rehabilitation practices including supported employment models shown to improve outcomes for individuals with significant disabilities. Counselors must document how services will lead to employment outcomes. DOR follows federal guidelines requiring informed choice, individualized planning, and competitive integrated employment as the goal.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Services include:</strong>
                     <ul>
-                        <li>Vocational assessments including interests, skills, and support needs</li>
-                        <li>Vocational counseling and career planning</li>
-                        <li>Job training programs (paid work experience, internships)</li>
-                        <li>Job development and placement services</li>
-                        <li>Assistive technology assessments and funding for work-related AT</li>
-                        <li>Support for post-secondary education if it leads to employment</li>
-                        <li>Job coaching and on-the-job support</li>
-                        <li>Benefits planning (understanding how work affects SSI/SSDI)</li>
-                        <li>Trial work experiences</li>
-                        <li>Self-employment consultation</li>
-                        <li>Transportation assistance for work</li>
-                        <li>Professional clothing and tools for work</li>
+                        <li>Vocational counseling and assessment</li>
+                        <li>Job placement and coaching</li>
+                        <li>Training and education funding</li>
+                        <li>Assistive technology for employment</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.dor.ca.gov/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 602-0600<br>
-                    📍 1400 Treat Blvd #100, Walnut Creek, CA 94597
+                    They're a state agency, services are free for eligible individuals. Funded through federal Workforce Innovation and Opportunity Act (WIOA).
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.dvc.edu/student-services/dsps/index.html" class="resource-link" target="_blank">Diablo Valley College, DSPS</a>
                     <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">🎓</span>
                 </div>
-                <h4>Diablo Valley College - DSPS</h4>
-                <p class="resource-description">Disabled Students Programs and Services at local community college in Pleasant Hill.</p>
+                <p class="resource-description">College disability services for local community college.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    DVC's DSPS provides the bridge between high school special education and college support services. Many students can be successful in community college with the right accommodations and support. DSPS helps students access accommodations, provides counseling specific to students with disabilities, and offers classes in study skills and college success. This is often a more affordable and accessible option than four-year universities while students build skills and confidence.
+                    <strong>Why I include this:</strong>
+                    DVC is the local community college and a lot of my students might go there after high school. Their DSPS (Disabled Students Programs and Services) provides accommodations in college, it's similar to what we do in K-12 but different rules since it's college. I send families here to tour and learn about the process before graduation so they know what to expect.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    DSPS programs are required by Section 504 of the Rehabilitation Act and the Americans with Disabilities Act. DVC's DSPS follows California Community Colleges Chancellor's Office guidelines for disability services. Accommodations are based on documented need and supported by research on what helps students with disabilities succeed in college. Counselors are trained in both college requirements and disability support, with many holding credentials in rehabilitation counseling or special education.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What DSPS offers:</strong>
                     <ul>
-                        <li>Disability verification and accommodation determination</li>
-                        <li>Academic accommodations (extended time, note-taking, alternative formats)</li>
-                        <li>Assistive technology lending (software, devices, recording equipment)</li>
-                        <li>DSPS counseling services for education planning</li>
-                        <li>Learning disability assessment coordination</li>
-                        <li>Priority registration for classes</li>
-                        <li>High school to college transition support including summer programs</li>
-                        <li>Classes in study skills, time management, and college success strategies</li>
-                        <li>Adaptive equipment loans</li>
-                        <li>Testing accommodations and separate testing rooms</li>
-                        <li>Communication with instructors about accommodations</li>
-                        <li>Tutoring services for students with disabilities</li>
+                        <li>Educational accommodations</li>
+                        <li>Assistive technology</li>
+                        <li>Counseling and educational planning</li>
+                        <li>Learning disability assessment</li>
+                        <li>Test proctoring</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.dvc.edu/student-services/dsps/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 685-1230
+                    Community colleges in California are required to have DSPS under Section 504 and ADA.
                 </div>
             </div>
+        </section>
 
-            <div class="info-box">
-                <h4>⚡ Key Transition Planning Points</h4>
-                <p><strong>For Educators:</strong> Transition planning should begin no later than age 16 (earlier in California for students with significant needs). Include the student's voice in planning, focus on strengths and interests, and coordinate with families and community agencies early.</p>
-            </div>
-        </div>
-
-        <!-- Trauma-Informed Resources Section -->
-        <div id="trauma" class="section">
-            <h2>💚 Trauma-Informed Resources</h2>
-            <p>Understanding trauma, creating safe environments, and supporting the mental health of autistic students.</p>
-
-            <h3>🌐 National & Online Resources</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
+        <!-- Trauma-Informed Practices Section -->
+        <section id="trauma" class="section">
+            <h2>❤️ Trauma-Informed Practices & Mental Health</h2>
+            
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.nctsn.org/" class="resource-link" target="_blank">National Child Traumatic Stress Network (NCTSN)</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🧠</span>
                 </div>
-                <h4>National Child Traumatic Stress Network</h4>
-                <p class="resource-description">Comprehensive trauma-informed care resources for schools and educators.</p>
+                <p class="resource-description">Resources for understanding and addressing childhood trauma.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    Many autistic students have experienced trauma, whether from bullying, restraint and seclusion, medical procedures, or other adverse experiences. NCTSN helps you understand how trauma affects learning and behavior, which is critical because trauma responses can look like behavior problems or non-compliance. Their school-specific resources help you create classrooms where traumatized students feel safe enough to learn.
+                    <strong>Why this matters:</strong>
+                    A lot of my students have experienced trauma, bullying, restraint/seclusion, medical procedures, other stuff. NCTSN helps you understand how trauma affects learning and behavior, which is critical because trauma responses can look like defiance or behavior problems when they're really not. Their school-specific resources help create classrooms where traumatized students feel safe enough to actually learn.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    NCTSN is funded by the Substance Abuse and Mental Health Services Administration (SAMHSA) and includes more than 150 member centers across the U.S. All resources are based on research about childhood trauma and evidence-based trauma treatments. Materials are developed by licensed mental health professionals specializing in childhood trauma and reviewed by experts in trauma-informed care. The network has been the leading authority on child traumatic stress since 2001.
+                    <strong>What you need to know:</strong>
+                    NCTSN is funded by SAMHSA (Substance Abuse and Mental Health Services Administration, a federal agency). It's a network of over 150 trauma centers that contribute to developing and sharing evidence-based practices.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Resources available:</strong>
                     <ul>
-                        <li>Trauma-informed school assessment and implementation tools</li>
-                        <li>Creating safe and supportive classrooms guidelines</li>
-                        <li>Understanding how trauma affects learning and behavior</li>
-                        <li>Discipline approaches that don't re-traumatize</li>
-                        <li>Crisis response planning for schools</li>
-                        <li>Teacher self-care strategies and secondary trauma prevention</li>
-                        <li>Trauma screening tools for schools</li>
-                        <li>Cultural considerations in trauma-informed care</li>
-                        <li>Helping traumatized children learn (specific classroom strategies)</li>
-                        <li>Collaboration with mental health providers</li>
-                        <li>Parent communication about trauma-informed approaches</li>
-                        <li>Training curricula for school staff</li>
+                        <li>Trauma screening and assessment tools</li>
+                        <li>School-based interventions</li>
+                        <li>Understanding trauma's impact on learning</li>
+                        <li>Cultural considerations in trauma work</li>
+                        <li>Resources for specific trauma types (abuse, medical, disasters)</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.nctsn.org/" target="_blank">🌐 Visit Website</a>
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.samhsa.gov/trauma-violence" class="resource-link" target="_blank">SAMHSA Trauma Resources</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🌱</span>
                 </div>
-                <h4>SAMHSA Trauma Resources</h4>
-                <p class="resource-description">Substance Abuse and Mental Health Services Administration trauma-informed approach resources.</p>
+                <p class="resource-description">Federal resources on trauma-informed care.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    SAMHSA provides the foundational framework for trauma-informed care that many school districts are now required to implement. Understanding their six key principles (safety, trustworthiness, peer support, collaboration, empowerment, cultural sensitivity) gives you a lens for evaluating all your classroom practices. Their resources help you shift from "What's wrong with this student?" to "What happened to this student?"
+                    <strong>What it is:</strong>
+                    This is the federal government's main resource on trauma. They developed the six principles of trauma-informed care (safety, trustworthiness, peer support, collaboration, empowerment, cultural considerations) that everyone references. Good for understanding the big picture framework.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    SAMHSA is a federal agency within the U.S. Department of Health and Human Services. They fund trauma research and evidence-based treatment programs across the country. The trauma-informed approach framework is based on extensive research about adverse childhood experiences (ACEs) and their impact on development, learning, and mental health. SAMHSA's guidelines are used by schools, hospitals, and social service agencies nationwide as the standard for trauma-informed care.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Key resources:</strong>
                     <ul>
-                        <li>Six key principles of trauma-informed approach</li>
-                        <li>Implementation guide for schools and educational settings</li>
-                        <li>School-based intervention strategies</li>
-                        <li>Crisis response and de-escalation guidelines</li>
-                        <li>Community trauma resources toolkit</li>
-                        <li>Cultural competence in trauma-informed care</li>
-                        <li>Training materials for staff development</li>
-                        <li>Organizational self-assessment tools</li>
-                        <li>Trauma screening and assessment guidance</li>
-                        <li>Policy development resources for trauma-informed schools</li>
-                        <li>Professional development modules</li>
-                        <li>Family engagement strategies in trauma-informed systems</li>
+                        <li>Six principles of trauma-informed care</li>
+                        <li>Training materials</li>
+                        <li>Implementation guides</li>
+                        <li>Resources on specific populations</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.samhsa.gov/trauma-violence" target="_blank">🌐 Visit Website</a>
+                    SAMHSA is part of the U.S. Department of Health and Human Services, so this is official federal guidance.
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://autisticadvocacy.org/" class="resource-link" target="_blank">Autistic Self Advocacy Network (ASAN)</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🎯</span>
                 </div>
-                <h4>Autistic Self Advocacy Network</h4>
-                <p class="resource-description">Autistic-led organization providing resources on supporting autistic individuals' mental health.</p>
+                <p class="resource-description">Advocacy and resources by and for autistic people.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    ASAN provides the autistic perspective on trauma, which is often missing from other resources. They explain why certain common practices (restraint, forced eye contact, compliance-based interventions) are traumatizing to autistic people. This helps you avoid re-traumatizing students and understand why some students have strong negative reactions to things that seem harmless. Their communication strategies respect autistic ways of communicating rather than forcing neurotypical standards.
+                    <strong>Why this is important:</strong>
+                    ASAN is run by and for autistic people, which is a perspective that's often missing from other resources. They explain why certain common practices (restraint, forced eye contact, compliance-based stuff) are traumatizing to autistic people. This has really changed how I think about some "standard" classroom management approaches. Their resources on communication access and self-advocacy are also really valuable for helping students understand and advocate for themselves.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    ASAN is the leading autistic-led advocacy organization in the United States, run by and for autistic people. Their resources are grounded in the lived experiences of autistic individuals and informed by research on autism, trauma, and mental health. While they don't conduct traditional research studies, they provide crucial first-person perspectives that research often misses. Their materials are widely respected in the autism community and increasingly used by professionals who want to provide affirming, non-traumatizing support.
+                    <strong>What you need to know:</strong>
+                    ASAN is autistic-led (founded by Ari Ne'eman and other autistic self-advocates). Their perspective comes from lived experience rather than clinical/research perspectives. They've been influential in disability rights policy.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Key resources:</strong>
                     <ul>
-                        <li>Understanding autistic trauma responses and how they differ from non-autistic trauma</li>
-                        <li>Communication strategies that respect autistic communication styles</li>
-                        <li>Sensory considerations in trauma and crisis situations</li>
-                        <li>Alternatives to restraint and seclusion</li>
-                        <li>Self-advocacy tools and materials</li>
-                        <li>Guidance on supporting autistic students without forcing compliance</li>
-                        <li>Resources on school discipline and autistic students</li>
-                        <li>Information on harmful practices to avoid</li>
-                        <li>Policy advocacy resources</li>
-                        <li>Disability rights education materials</li>
-                        <li>Videos and webinars featuring autistic speakers</li>
-                        <li>Collaboration guidance for non-autistic professionals</li>
+                        <li>Policy papers on restraint/seclusion</li>
+                        <li>Communication access materials</li>
+                        <li>Self-advocacy toolkits</li>
+                        <li>Critiques of ABA and compliance-based approaches</li>
+                        <li>Resources for autistic adults</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://autisticadvocacy.org/" target="_blank">🌐 Visit Website</a>
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.zonesofregulation.com/" class="resource-link" target="_blank">Zones of Regulation</a>
                     <span class="badge badge-online">Online</span>
-                    <span style="font-size: 1.5em;">🛡️</span>
                 </div>
-                <h4>Zones of Regulation</h4>
-                <p class="resource-description">Framework for teaching self-regulation and emotional control, particularly helpful for trauma-affected students.</p>
+                <p class="resource-description">Framework for teaching self-regulation and emotional control.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    Zones gives students (and teachers) a common language for talking about emotional states without judgment. The visual, color-coded framework makes it accessible for students who struggle with abstract emotion words. It's particularly helpful for autistic students because it acknowledges that all emotions are valid and focuses on learning what helps you regulate rather than just "being good." The framework includes sensory strategies that many autistic students find helpful.
+                    <strong>Why I use it:</strong>
+                    Zones gives students and teachers a shared way to talk about emotional states without judgment. The color-coded framework (blue, green, yellow, red) makes it accessible for students who struggle with abstract emotion words. I use this in my classroom and like that it acknowledges all emotions are valid, it's about learning what helps you regulate, not just "being good."
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Zones of Regulation was developed by Leah Kuypers, an occupational therapist with extensive experience working with students with social-emotional and sensory needs. The curriculum integrates research on self-regulation, executive functions, and sensory processing. While the Zones framework itself is a specific program, it's based on well-established principles from cognitive behavioral therapy, sensory integration theory, and social thinking research. The program has been widely adopted and has case studies showing positive outcomes.
+                    <strong>What you need to know:</strong>
+                    Developed by Leah Kuypers, an occupational therapist. It combines principles from cognitive-behavioral therapy, self-regulation theory, and social thinking. Widely used in schools, there's research supporting it but it's not as extensively studied as some other interventions.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Components:</strong>
                     <ul>
-                        <li>Visual framework with four color-coded zones (blue, green, yellow, red)</li>
-                        <li>Emotion identification activities</li>
-                        <li>Sensory strategies organized by zone</li>
-                        <li>Cognitive strategies for self-regulation</li>
-                        <li>Co-regulation techniques for adults</li>
-                        <li>Tools for identifying triggers</li>
-                        <li>Classroom implementation guides</li>
-                        <li>Posters and visual supports ready to print</li>
-                        <li>Size of the problem curriculum integration</li>
-                        <li>Activities for teaching expected vs. unexpected behaviors</li>
-                        <li>Data collection tools</li>
-                        <li>Parent communication materials</li>
-                        <li>Lesson plans for teaching zones concepts</li>
+                        <li>Color-coded emotional framework</li>
+                        <li>Sensory supports for regulation</li>
+                        <li>Strategies for different zones</li>
+                        <li>Curricula and lesson plans</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.zonesofregulation.com/" target="_blank">🌐 Visit Website</a>
                 </div>
             </div>
 
-            <h3>📍 Local Concord/Contra Costa Resources</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://cchealth.org/mentalhealth/" class="resource-link" target="_blank">Contra Costa Behavioral Health Services</a>
                     <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">🏥</span>
                 </div>
-                <h4>Contra Costa Behavioral Health Services</h4>
-                <p class="resource-description">County mental health services including child and adolescent programs.</p>
+                <p class="resource-description">County mental health services and crisis support.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    This is the county mental health system that can provide school-based therapy and crisis services. Many students with autism also have mental health needs like anxiety, depression, or trauma that schools can't address alone. Behavioral Health can place therapists directly in schools or provide clinic-based services. In crisis situations, they have 24/7 support. Knowing how to access these services quickly is important for supporting students in crisis.
+                    <strong>What it provides:</strong>
+                    This is where you go when students have mental health needs schools can't handle alone, anxiety, depression, trauma. They can place therapists directly in schools or provide clinic services. They have 24/7 crisis support, which is important to know about. I've referred families here several times.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Contra Costa Behavioral Health is part of the county health system and must meet California Department of Health Care Services standards for mental health treatment. Services are provided by licensed mental health professionals (LCSWs, LMFTs, psychologists, psychiatrists) who are trained in evidence-based treatments. School-based services are required to use evidence-based practices and document outcomes. The system provides oversight and quality assurance for all contracted providers.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Services available:</strong>
                     <ul>
-                        <li>School-based mental health services (therapists placed in schools)</li>
-                        <li>Outpatient therapy at clinic locations throughout the county</li>
-                        <li>Crisis intervention services available 24/7</li>
-                        <li>Crisis stabilization programs</li>
-                        <li>Family therapy and family support services</li>
-                        <li>Psychiatric services and medication management</li>
-                        <li>Case management for complex situations</li>
-                        <li>Collaboration with schools on treatment planning</li>
-                        <li>Group therapy options</li>
-                        <li>Trauma-focused therapy (TF-CBT and other evidence-based models)</li>
-                        <li>Mobile crisis teams that can come to schools</li>
-                        <li>Warm line for mental health questions</li>
+                        <li>School-based therapy</li>
+                        <li>Clinic-based services</li>
+                        <li>Crisis intervention (24/7)</li>
+                        <li>Medication support</li>
+                        <li>Case management</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://cchealth.org/mentalhealth/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 Crisis Line: (800) 833-2900<br>
-                    📞 Main: (925) 957-5140
+                    Part of Contra Costa County Health Services, serves all county residents. Services are often free or low-cost based on income.
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">💙</span>
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.nami.org/Your-Journey/Family-Members-and-Caregivers" class="resource-link" target="_blank">NAMI (National Alliance on Mental Illness)</a>
+                    <span class="badge badge-online">Online</span>
                 </div>
-                <h4>NAMI Contra Costa</h4>
-                <p class="resource-description">National Alliance on Mental Illness local chapter providing education and support.</p>
+                <p class="resource-description">Mental health education, support, and advocacy.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    NAMI provides education and support that helps families understand mental health conditions and how to support their child. Their family education programs give parents strategies and connect them with other families facing similar challenges. NAMI can also provide mental health education presentations at schools. This is helpful when you need to refer families for support or want to bring mental health awareness to your school community.
+                    <strong>Good resource for families:</strong>
+                    NAMI does family education programs and support groups. When families are dealing with mental health challenges alongside autism, NAMI can provide education about mental health conditions and connect them with other families going through similar stuff. They have a local Contra Costa chapter.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    NAMI is the nation's largest grassroots mental health organization with chapters in every state. While they're primarily advocacy and support rather than treatment, their education programs are based on current mental health research and reviewed by mental health professionals. NAMI Contra Costa's presenters are trained in evidence-based mental health education curricula. The organization provides accurate information about diagnoses, treatments, and the mental health system.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>What they offer:</strong>
                     <ul>
-                        <li>Family-to-Family education program (free 8-week course for families)</li>
-                        <li>Support groups for family members</li>
-                        <li>NAMI Basics for parents of children with mental health challenges</li>
-                        <li>Mental health presentations available for schools and community groups</li>
-                        <li>Connection program to help people find resources and support</li>
-                        <li>Helpline for questions about mental health services</li>
-                        <li>Resource library and referral information</li>
-                        <li>Advocacy support for families navigating systems</li>
-                        <li>Youth programs including peer support</li>
-                        <li>Educational materials on various mental health conditions</li>
-                        <li>Information on insurance and accessing services</li>
-                        <li>Crisis resources and planning</li>
+                        <li>Family education programs</li>
+                        <li>Support groups</li>
+                        <li>Resources on specific mental health conditions</li>
+                        <li>Advocacy training</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://namicontracosta.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 289-1047
+                    NAMI is a grassroots organization with local chapters nationwide. Programs are typically free.
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://senecafoa.org/" class="resource-link" target="_blank">Seneca Family of Agencies</a>
                     <span class="badge badge-local">Local</span>
-                    <span style="font-size: 1.5em;">🌟</span>
                 </div>
-                <h4>Seneca Family of Agencies</h4>
-                <p class="resource-description">Provides mental health and supportive services to children and families in Contra Costa.</p>
+                <p class="resource-description">Intensive school-based mental health services.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    Seneca provides intensive school-based mental health services, particularly for students with significant behavioral and emotional needs. They can place therapists and behavioral specialists directly in schools to work with students throughout the school day. This is more intensive than what school counselors or county services typically provide. Seneca works well for students who need frequent check-ins and immediate support when they're struggling.
+                    <strong>What it is:</strong>
+                    Seneca provides intensive mental health services in schools (more intensive than typical school counseling). They work with students who have significant behavioral or emotional challenges. I've worked with their therapists in my classroom before, they do individual therapy but also help develop behavior plans and train staff.
                 </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Seneca is a large nonprofit provider contracted with Contra Costa County to provide school-based mental health services. All staff are licensed or credentialed mental health professionals supervised by licensed clinicians. Seneca uses evidence-based interventions including trauma-focused cognitive behavioral therapy, dialectical behavior therapy skills, and positive behavior supports. Services are documented and outcomes are tracked. Seneca receives regular audits and oversight from the county and must demonstrate positive outcomes for students served.
-                </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Services:</strong>
                     <ul>
                         <li>School-based individual therapy</li>
-                        <li>Small group therapy interventions</li>
-                        <li>Crisis intervention and de-escalation support</li>
-                        <li>Consultation with teachers and school staff</li>
-                        <li>Family therapy and parent support</li>
-                        <li>Trauma-informed interventions (TF-CBT)</li>
-                        <li>Behavior planning and support</li>
-                        <li>Care coordination with other services</li>
-                        <li>Skills training (coping skills, social skills, emotion regulation)</li>
-                        <li>Transition support between programs or schools</li>
-                        <li>Staff training on mental health and trauma</li>
-                        <li>Community-based services for home and after-school settings</li>
+                        <li>Group therapy</li>
+                        <li>Crisis intervention</li>
+                        <li>Behavioral consultation</li>
+                        <li>Family support</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.senecafoa.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (510) 654-4004
+                    Nonprofit agency providing evidence-based interventions. Services are typically funded through Medi-Cal or county mental health.
                 </div>
             </div>
+        </section>
 
-            <div class="info-box">
-                <h4>🔑 Key Trauma-Informed Principles</h4>
-                <p><strong>Remember:</strong> Safety, trustworthiness, peer support, collaboration, empowerment, and cultural sensitivity are core principles. For autistic students, also consider sensory needs, communication differences, and the importance of predictability and routine.</p>
-            </div>
-        </div>
-
-        <!-- Local Resources Section -->
-        <div id="local" class="section">
-            <h2>📍 Local Concord & Contra Costa Resources</h2>
-            <p>Comprehensive list of local organizations, schools, and services specifically serving the Concord and Contra Costa County area.</p>
-
-            <h3>🏫 Specialized Schools & Programs</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Concord</span>
-                    <span style="font-size: 1.5em;">🎒</span>
+        <!-- Local Schools Section -->
+        <section id="local" class="section">
+            <h2>🏫 Local Schools & Specialized Programs</h2>
+            
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://acestudents.org/" class="resource-link" target="_blank">ACE Charter Schools (formerly Anova)</a>
+                    <span class="badge badge-local">Local</span>
                 </div>
-                <h4>ACE Contra Costa Campus (Anova)</h4>
-                <p class="resource-description">Only K-12 school in Contra Costa County specializing in education for children with Autism Spectrum Disorders.</p>
+                <p class="resource-description">K-12 school specifically for autistic students.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    ACE is the only school in Contra Costa County specifically designed for students with autism, using a comprehensive model that integrates education with therapy throughout the school day. This is particularly valuable for students who need intensive, specialized instruction and aren't making progress in traditional special education settings. The small class sizes and high staff-to-student ratio allow for highly individualized programming that's hard to achieve in public school settings.
+                    <strong>What makes it unique:</strong>
+                    ACE is the only K-12 school in Contra Costa County that's specifically designed for autistic students. They use the Autism Model of Education (AME) which focuses on strengths-based, individualized instruction. Small class sizes, structured environment, focus on communication and social skills. Some of my students have gone there when they needed more specialized support than MDUSD could provide.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    ACE uses the Anova Method of Education (AME), which integrates Applied Behavior Analysis (ABA), speech therapy, occupational therapy, and academics in an evidence-based framework. All teachers are credentialed special education teachers, and therapy services are provided by licensed clinicians (BCBAs, SLPs, OTs). The school follows California state standards and curriculum frameworks. ACE is a certified nonpublic school (NPS) that undergoes regular reviews by the California Department of Education to maintain certification.
+                    <strong>What you need to know:</strong>
+                    ACE is a nonpublic school (NPS) certified by the state. Students are usually placed there by their district through the IEP process when the district determines they need a more specialized setting. The district pays tuition.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Program features:</strong>
                     <ul>
-                        <li>K-12 education specifically for students with autism</li>
                         <li>Small class sizes (typically 6-8 students per class)</li>
-                        <li>Credentialed special education teachers</li>
-                        <li>Embedded ABA services throughout the school day</li>
-                        <li>Speech therapy, occupational therapy, and adaptive PE integrated into classroom</li>
-                        <li>California state standards-based curriculum adapted for autism</li>
-                        <li>Structured teaching using visual supports and schedules</li>
-                        <li>Social skills instruction and practice</li>
-                        <li>Transition planning and life skills training for older students</li>
-                        <li>Parent training and collaboration</li>
-                        <li>Comprehensive assessments and progress monitoring</li>
-                        <li>Specialized crisis intervention and behavior support</li>
+                        <li>Autism Model of Education (AME) approach</li>
+                        <li>Speech, OT, counseling on-site</li>
+                        <li>Structured, predictable environment</li>
+                        <li>Functional life skills focus for older students</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://anovaeducation.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 687-9616<br>
-                    📍 1140 Galaxy Way, Suite 100, Concord, CA 94520
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Concord</span>
-                    <span style="font-size: 1.5em;">🎓</span>
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.orionacademy.org/" class="resource-link" target="_blank">Orion Academy</a>
+                    <span class="badge badge-local">Local</span>
                 </div>
-                <h4>Orion Academy</h4>
-                <p class="resource-description">First high school in California providing college-prep education specifically for students with autism spectrum disorder.</p>
+                <p class="resource-description">College-prep school for students with autism and learning differences.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    Orion is one of the first schools in California designed specifically for college-bound autistic students who have the academic skills for college prep but struggle with the social and executive function demands of traditional high schools. This fills a gap for students who don't need academic modifications but do need support with organization, social interaction, and managing the hidden curriculum of school. The school explicitly teaches the social and pragmatic skills that are assumed in typical schools.
+                    <strong>What it is:</strong>
+                    Orion is for students who are academically capable but need support with executive functioning, social skills, and organization. It's a college-prep program, students there are working on UC a-g requirements. Different vibe from ACE, Orion students are working at or near grade level academically but need the smaller class sizes and explicit social skills instruction.
                 </div>
-
+                
                 <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Orion Academy is a certified nonpublic school that meets California Department of Education standards. The curriculum uses evidence-based approaches for teaching social cognition (including Social Thinking curriculum and executive function strategies). All courses are UC-approved college prep classes, meeting rigorous academic standards. Teachers have credentials in their subject areas plus training in autism and social-pragmatic instruction. The school's model is based on research about what helps autistic students succeed academically while addressing their social-cognitive differences.
+                    <strong>What you need to know:</strong>
+                    Orion is also a nonpublic school (NPS). Their curriculum includes Social Thinking methodology (Michelle Garcia Winner) and they have UC-approved courses. Students can earn a regular high school diploma.
                 </div>
-
+                
                 <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
+                    <strong>Program features:</strong>
                     <ul>
-                        <li>Grades 8-12 college preparatory curriculum</li>
-                        <li>All courses UC a-g approved for college admission</li>
-                        <li>Small class sizes (8-12 students)</li>
-                        <li>Explicit instruction in social cognition and pragmatic language</li>
-                        <li>Executive function support and organizational strategies</li>
-                        <li>Supported transitions between classes and activities</li>
-                        <li>Lunch bunch and structured social opportunities</li>
-                        <li>College counseling and application support</li>
-                        <li>SAT/ACT preparation</li>
-                        <li>Self-advocacy skills development</li>
-                        <li>Internship and community experience opportunities</li>
-                        <li>Parent workshops on supporting teenagers with autism</li>
-                        <li>Collaboration with therapists and outside providers</li>
-                        <li>Modified schedule options for students who need them</li>
+                        <li>College-prep academic program</li>
+                        <li>Social Thinking curriculum</li>
+                        <li>Executive function support</li>
+                        <li>Small classes (8-12 students)</li>
+                        <li>Transition support for college/career</li>
                     </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.orionacademy.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 377-0789<br>
-                    📍 1868 Clayton Road, Concord, CA 94520
                 </div>
             </div>
 
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Concord</span>
-                    <span style="font-size: 1.5em;">🏫</span>
+            <div class="resource-item">
+                <div class="resource-title">
+                    <a href="https://www.mdusd.org/departments/educational_services/special_education" class="resource-link" target="_blank">MDUSD Special Education Programs</a>
+                    <span class="badge badge-local">Local</span>
                 </div>
-                <h4>Mount Diablo Unified School District</h4>
-                <p class="resource-description">Your local public school district serving Concord with special education programs and services.</p>
+                <p class="resource-description">Full continuum of special education services in Mount Diablo Unified.</p>
                 
                 <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    MDUSD is your local public school district, making it the most accessible option for most families in Concord. The district offers a range of special education services from full inclusion with support to specialized special day classes. Understanding what MDUSD offers helps you advise families appropriately and connect students with services. For teachers working in MDUSD, this is where you'll access support, resources, and collaboration with other special educators.
-                </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    As a public school district, MDUSD must comply with federal IDEA requirements and California Education Code standards for special education. Services are provided by credentialed teachers and licensed therapists. The district is required to provide FAPE (Free Appropriate Public Education) based on individual student needs, using evidence-based practices. MDUSD receives oversight from Contra Costa SELPA and the California Department of Education, with regular program reviews and monitoring for compliance and outcomes.
-                </div>
-
-                <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
-                    <ul>
-                        <li>Special Day Classes (SDC) for students with moderate to severe autism</li>
-                        <li>Inclusion support models (push-in services, co-teaching)</li>
-                        <li>Full continuum of placement options</li>
-                        <li>Speech and language therapy</li>
-                        <li>Occupational therapy services</li>
-                        <li>Adapted physical education</li>
-                        <li>Behavior intervention specialists and support</li>
-                        <li>Assistive technology assessments and lending library</li>
-                        <li>Augmentative and alternative communication (AAC) support</li>
-                        <li>Transition program for students ages 18-22 focusing on employment and independence</li>
-                        <li>Preschool special education programs</li>
-                        <li>Professional development for general and special education staff</li>
-                        <li>Parent education workshops and support groups</li>
-                        <li>Access to resource specialists and program specialists</li>
-                    </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.mdusd.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 682-8000
+                    <strong>My district:</strong>
+                    See Academic Supports section above for full details, it's my district so I already covered it there.
                 </div>
             </div>
+        </section>
 
-            <h3>🏢 Service Agencies & Support</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Contra Costa</span>
-                    <span style="font-size: 1.5em;">🤝</span>
-                </div>
-                <h4>Regional Center of the East Bay</h4>
-                <p class="resource-description">Primary county resource for individuals with developmental disabilities including autism.</p>
-                
-                <div class="resource-why">
-                    <strong>Why it's useful:</strong>
-                    RCEB is the gateway to services for individuals with developmental disabilities in Contra Costa and Alameda counties. They provide case management and fund services that schools don't cover, such as respite for families, behavioral services, day programs, and supported living. Getting connected early (especially for early intervention 0-3) can make a huge difference in outcomes. For school-age students, RCEB can supplement school services and help with transition planning starting at age 14.
-                </div>
-
-                <div class="resource-evidence">
-                    <strong>What makes it evidence-based/trustworthy:</strong>
-                    Regional Centers operate under California's Lanterman Developmental Disabilities Services Act, which established the right to services for people with developmental disabilities. RCEB is a private nonprofit contracted by the California Department of Developmental Services and must follow state regulations. Service coordinators help families navigate systems and connect with evidence-based services. All vendors funded by RCEB must be certified by the state and provide services that meet established standards. RCEB is required to use person-centered planning approaches shown to improve quality of life outcomes.
-                </div>
-
-                <div class="resource-features">
-                    <strong>Specific features/tools available:</strong>
-                    <ul>
-                        <li>Intake and eligibility assessment (free)</li>
-                        <li>Early Start program for children 0-3 with developmental delays</li>
-                        <li>Service coordination/case management</li>
-                        <li>Individual Program Plans (IPPs) using person-centered planning</li>
-                        <li>Funding for behavioral services (ABA therapy, behavior consultation)</li>
-                        <li>Respite care for families (in-home and out-of-home)</li>
-                        <li>Day programs and community integration services</li>
-                        <li>Supported employment services</li>
-                        <li>Independent living support and training</li>
-                        <li>Family support services including parent training</li>
-                        <li>Crisis intervention and emergency services</li>
-                        <li>Assistive technology funding</li>
-                        <li>Home modifications for accessibility</li>
-                        <li>Transportation assistance</li>
-                        <li>Social and recreational programs</li>
-                        <li>Transition planning starting at age 14</li>
-                        <li>Self-determination program for adults</li>
-                    </ul>
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.rceb.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 Under 3: (510) 618-6195<br>
-                    📞 Over 3: (510) 618-6122<br>
-                    📍 Concord Office: 1320 Willow Pass Rd #500, Concord, CA
-                </div>
-            </div>
-
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Contra Costa</span>
-                    <span style="font-size: 1.5em;">📚</span>
-                </div>
-                <h4>Contra Costa SELPA</h4>
-                <p class="resource-description">Special Education Local Plan Area providing technical assistance and professional development.</p>
-                
-                <div class="resource-links">
-                    <a href="https://www.cocosped.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (925) 942-3388
-                </div>
-                <p style="margin-top: 10px; font-style: italic;">See Academic Supports section above for detailed information about SELPA services.</p>
-            </div>
-
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Contra Costa</span>
-                    <span style="font-size: 1.5em;">🩺</span>
-                </div>
-                <h4>BM Behavioral Center</h4>
-                <p class="resource-description">ABA therapy services in Contra Costa County for children with autism.</p>
-                
-                <div class="resource-description" style="margin-top: 15px;">
-                    <strong>Why it's useful:</strong> Provides in-home and center-based ABA therapy for families seeking additional behavioral support outside of school hours. Can be a good option for students who need more intensive behavioral intervention than what schools can provide.
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://bmbehavioralcenter.com/contra-costa/" target="_blank">🌐 Visit Website</a>
-                </div>
-            </div>
-
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Bay Area</span>
-                    <span style="font-size: 1.5em;">🏥</span>
-                </div>
-                <h4>UCSF Autism Center</h4>
-                <p class="resource-description">Comprehensive autism evaluation, treatment, and research center serving the Bay Area.</p>
-                
-                <div class="resource-description" style="margin-top: 15px;">
-                    <strong>Why it's useful:</strong> Provides gold-standard diagnostic evaluations and comprehensive treatment services. Good referral for families seeking a thorough assessment or second opinion, or for students with complex presentations who need specialized evaluation and treatment planning.
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://autism.ucsf.edu/" target="_blank">🌐 Visit Website</a>
-                </div>
-                <div class="contact-info">
-                    📞 (415) 476-5700
-                </div>
-            </div>
-
-            <h3>💙 Support Organizations</h3>
-
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Contra Costa</span>
-                    <span style="font-size: 1.5em;">🌟</span>
-                </div>
-                <h4>The Arc of Contra Costa</h4>
-                <p class="resource-description">Advocacy organization for individuals with intellectual and developmental disabilities.</p>
-                
-                <div class="resource-description" style="margin-top: 15px;">
-                    <strong>Why it's useful:</strong> Provides advocacy support, resources, and connections for families navigating services and systems. Good referral when families need help understanding their rights or advocating for appropriate services.
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.arcofc.org/" target="_blank">🌐 Visit Website</a>
-                </div>
-            </div>
-
-            <div class="resource">
-                <div class="resource-meta">
-                    <span class="badge badge-local">Contra Costa</span>
-                    <span style="font-size: 1.5em;">🤲</span>
-                </div>
-                <h4>Family Resource Centers</h4>
-                <p class="resource-description">County-operated centers providing family support and resources.</p>
-                
-                <div class="resource-description" style="margin-top: 15px;">
-                    <strong>Why it's useful:</strong> Free, accessible community resources offering parent education, family activities, and connections to county services. Good starting point for families who need general support and don't know where to begin.
-                </div>
-
-                <div class="resource-links">
-                    <a href="https://www.contracosta.ca.gov/1146/Family-Resource-Centers" target="_blank">🌐 Visit Website</a>
-                </div>
-            </div>
-
-            <div class="info-box">
-                <h4>📞 Important Local Contact Numbers</h4>
-                <p><strong>Crisis Support:</strong> Contra Costa Crisis Line: (800) 833-2900 (24/7)</p>
-                <p><strong>Regional Center Intake:</strong> Under 3: (510) 618-6195 | Over 3: (510) 618-6122</p>
-                <p><strong>SELPA:</strong> (925) 942-3388</p>
-                <p><strong>Behavioral Health:</strong> (925) 957-5140</p>
-            </div>
-        </div>
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2>📬 About This Resource Guide</h2>
+            <p>This resource guide was created as part of coursework in Special Education at CSU East Bay. The resources listed here reflect evidence-based practices, local service providers in Contra Costa County, and tools that support autistic students across their educational journey.</p>
+            <p style="margin-top: 15px;"><strong>Created by:</strong> Ryan Sullivan, Special Education Teacher, MDUSD</p>
+            <p><strong>Last Updated:</strong> December 2024</p>
+            <p style="margin-top: 15px;">All resources are provided for educational purposes. While every effort has been made to ensure accuracy and currency of information, please verify details directly with service providers as programs and contact information may change.</p>
+        </section>
 
         <footer>
-            <p><strong>Autism Resources for K-12 Educators</strong></p>
-            <p>Serving Concord, CA and Contra Costa County | Created November 2025</p>
-            <p style="font-size: 0.9em; margin-top: 15px;">This website provides general information and resources. Always verify current contact information and services. For questions or to suggest additional resources, contact your school district's special education department.</p>
+            <p>&copy; 2024 Autism Resources for K-12 Educators | Created for SPED 602A, CSU East Bay</p>
         </footer>
     </div>
 </body>
